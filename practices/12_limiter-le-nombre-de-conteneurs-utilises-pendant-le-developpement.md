@@ -35,8 +35,8 @@ disque utilisé par le projet.
 
 | Le nombre...                              | est inférieur ou égal à |
 |-------------------------------------------|-------------------------|
-| de conteneurs par développeur             | 0                       |
-| de conteneurs par consultant fonctionnel  | 0                       |
+| de conteneurs par développeur             | 5                       |
+| de conteneurs par consultant fonctionnel  | 2                       |
 
 
 ## Liens avec le RGESN
