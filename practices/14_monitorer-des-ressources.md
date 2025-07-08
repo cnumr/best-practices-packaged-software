@@ -51,10 +51,10 @@ Solutions que l’on peut mettre en place :
 
 ### Principe de validation
 
-| Le nombre...                                                                                              | est égal à |
-|-----------------------------------------------------------------------------------------------------------|------------|
-| De projet avec suivi des consommations systèmes des clients                                               | 90%        |
-| De nos clients ayant des alertes sur la sur-sous consommations systèmes et/ou projections de consommation | 90%        |
+| Le nombre...                                                                                              | est supérieur ou égal à |
+|-----------------------------------------------------------------------------------------------------------|-------------------------|
+| De projet avec suivi des consommations systèmes des clients                                               | 90%                     |
+| De nos clients ayant des alertes sur la sur-sous consommations systèmes et/ou projections de consommation | 90%                     |
 
 
 ## Liens avec le RGESN

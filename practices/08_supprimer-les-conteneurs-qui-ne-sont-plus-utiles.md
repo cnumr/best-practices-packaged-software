@@ -39,10 +39,10 @@ donc plus utile.
 
 ### Principe de validation
 
-| Le nombre...                             | est inférieur ou égal à |
-|------------------------------------------|-------------------------|
-| de conteneurs par développeur est        | 0                       |
-| de conteneurs par consultant fonctionnel | 0                       |
+| Le nombre...                             | est égal à |
+|------------------------------------------|------------|
+| de conteneurs par développeur est        | 0          |
+| de conteneurs par consultant fonctionnel | 0          |
 
 
 ## Liens avec le RGESN

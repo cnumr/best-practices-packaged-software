@@ -37,8 +37,8 @@ Les fonctionnalités spécifiquement adaptées seront un coût en RUN.
 
 ### Principe de validation
 
-| Le nombre...                                                 | est égal à |
-|--------------------------------------------------------------|------------|
+| Le nombre...                                                                   | est égal à |
+|--------------------------------------------------------------------------------|------------|
 | Développements spécifiques mis en œuvre alors que le standard pourrait suffire | 0          |
 
 
