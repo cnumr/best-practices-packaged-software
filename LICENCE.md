@@ -1,6 +1,6 @@
 # Licence CC-By-NC-ND
 
-Vous avez l'obligation de transmettre les titres et les règles de validation de toutes les bonnes pratiques de la version 4 en l'état, sans modification, intégralement, en incluant les informations ci-dessous:
+Vous avez l'obligation de transmettre les titres et les règles de validation de toutes les bonnes pratiques en l'état, sans modification, intégralement, en incluant les informations ci-dessous:
 
 	Le "Référentiels de bonnes pratiques pour l'intégration de progiciels (REIPRO)" est publié dans le cadre des travaux du Collectif conception numérique responsable selon les termes de la licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International.
 
