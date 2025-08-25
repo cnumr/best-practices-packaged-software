@@ -31,7 +31,7 @@ Dans l’objectif de conserver la solution déployée la plus sobre et la plus o
 décommissionner les développements spécifiques qui deviennent inclus dans les standards.
 
 Cela permet de réduire la taille du livrable (code, assets, …) et de profiter des éventuelles optimisations mises en 
-place par Microsoft pour ce besoin ainsi que des mises à jour automatiques issues du feedback du monde entier.
+place par l'éditeur pour ce besoin ainsi que des mises à jour automatiques issues du feedback du monde entier.
 
 
 ### Principe de validation
