@@ -1,4 +1,4 @@
-# Supprimer les containers qui ne sont plus utiles
+# Supprimer les conteneurs qui ne sont plus utiles
 
 
 ## Catégories
