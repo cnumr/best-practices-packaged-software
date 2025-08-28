@@ -48,7 +48,7 @@ La stratégie suivante peut par exemple être utilisée :
 * Pipeline « Next Major », 1 fois par mois.
 * Pipeline « All » (simulant toutes les extensions actuelles de l’env. de prod) 1 fois toutes les 2 semaines.
 * Next Major, Next Minor et All ne sont pas à initialiser au début d’un projet OnPrem.
-* 
+
 Ces règles peuvent être flexibles en fonction du contexte projet (Next Major très proche, test de nouvelles versions, …).
 Cependant, ces cas doivent rester exceptionnels.
 
