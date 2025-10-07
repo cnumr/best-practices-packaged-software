@@ -1,0 +1,35 @@
+---
+refID: '013'
+title: Vérifier régulièrement la consommation des conteneurs déployés
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 13.0.0
+    idRef: '013'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/architecte-logicieldeveloppeur.mdx
+  - responsible: src/content/personas/fr/codeuseur-developpeuser.mdx
+lifecycle: 3-developement
+rgesn: NA
+environmental_impact: 5
+priority_implementation: 5
+moe: 5
+tiers: datacenter
+saved_resources:
+  - cpu
+  - ram
+validations:
+  - conteneurs qui n’apparaissent pas dans le monitoring
+    maxValue: '0'
+---
+
+## Description
+
+Par rapport à tous les principes liés aux conteneurs et au DevOps, il est important de pouvoir facilement monitorer les
+différentes exécutions de conteneurs et les conteneurs actifs, pour analyser et prévenir les problèmes.
+
+Le suivi doit inclure le nombre de conteneurs et le taux d’utilisation des ressources (cpu, ram, disque…) associées.
