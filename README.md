@@ -17,7 +17,7 @@ N'hésitez pas à lire [le guide des contributeurs](CONTRIBUTING.md).
 * [Supprimer les développements spécifiques non utilisés](practices/05_supprimer-les-developpements-specifiques-non-utilises.md)
 * [Reporter les tâches qui peuvent l'être pour lisser la charge](practices/06_lisser-la-charge.md)
 * [Minimiser les ressources nécessaires au projet](practices/07_minimiser-les-ressources-necessaires-au-projet.md)
-* [Supprimer les containers qui ne sont plus utiles](practices/08_supprimer-les-conteneurs-qui-ne-sont-plus-utiles.md)
+* [Supprimer les conteneurs qui ne sont plus utiles](practices/08_supprimer-les-conteneurs-qui-ne-sont-plus-utiles.md)
 * [Désactiver l'auto-start et activer l'auto-stop](practices/09_desactiver-l_autostart-et-activer-l_auto-stop.md)
 * [Limiter la fréquence de lancement des builds](practices/10_limiter-la-frequence-de-lancement-des-builds.md)
 * [Répartir les builds dans le temps](practices/11_repartir-les-builds-dans-le-temps.md)
