@@ -1,0 +1,49 @@
+---
+refID: '011'
+title: Répartir les builds dans le temps
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 11.0.0
+    idRef: '011'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/codeuseur-developpeuser.mdx
+lifecycle: 3-developement
+rgesn: NA
+environmental_impact: 3
+priority_implementation: 3
+moe: 3
+tiers: datacenter
+saved_resources:
+  - cpu
+  - ram
+validations:
+  - rule: de projet qui n'ont pas été pris en compte dans le planning des builds
+    maxValue: '5%'
+---
+
+## Description
+
+Il est possible de lancer de façon automatique un certain nombre de pipelines de build. Il est important de réfléchir à
+la fréquence de lancement de ceux-ci par rapport à tous les autres projets. En effet, si tous les lancements
+automatiques de tous les projets se lancent en même temps, cela provoque un pic serveur, provoquant ralentissement et
+potentiellement des erreurs, comme des timeouts.
+
+Pour éviter ces ralentissements lors des pics, il faut augmenter la puissance informatique mise à disposition, ce qui
+augmente inutilement les impacts environnementaux associés. Mieux répartir les builds dans le temps permet au contraire
+de réduire la quantité de ressources informatiques (nombre et taille des serveurs) nécessaire pour construire tous les
+builds.
+
+Il est donc important de répartir les différents lancements automatiques des différents projets dans des plages horaires
+bien séparées et dans des heures creuses. Un petit effort de planification entre les différents projets peut donc être
+payant tant en termes de réductions des coûts (moins de serveurs moins puissants = moins de coûts) et d'impacts
+environnementaux.
+
+## Exemple
+
+Si 50 projets lancent chacun un build Next Major en même temps, un pic de consommation serveur est créé alors que s’ils
+avaient été répartis, la consommation serait linéaire.
