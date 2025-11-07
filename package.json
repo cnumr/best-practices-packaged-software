@@ -7,7 +7,7 @@
     "dev": "tinacms dev -c \"next dev\"",
     "dev:prod": "TINA_PUBLIC_IS_LOCAL=false TINA_PUBLIC_REF_NAME=REIPRO NEXT_PUBLIC_REF_NAME=REIPRO tinacms dev -c \"next dev\"",
     "build": "TINA_PUBLIC_IS_LOCAL=false TINA_PUBLIC_REF_NAME=REIPRO NEXT_PUBLIC_REF_NAME=REIPRO tinacms build --partial-reindex && next build",
-    "build-local": "./scripts/build-local.sh",
+    "build-local": "TINA_PUBLIC_IS_LOCAL=true TINA_PUBLIC_REF_NAME=REIPRO NEXT_PUBLIC_REF_NAME=REIPRO ./scripts/build-local.sh",
     "start": "TINA_PUBLIC_IS_LOCAL=true TINA_PUBLIC_REF_NAME=REIPRO NEXT_PUBLIC_REF_NAME=REIPRO tinacms build && next start",
     "serve-local": "TINA_PUBLIC_IS_LOCAL=true TINA_PUBLIC_REF_NAME=REIPRO NEXT_PUBLIC_REF_NAME=REIPRO next start",
     "lint": "pnpm lint:next && pnpm lint:md",
