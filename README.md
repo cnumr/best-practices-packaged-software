@@ -1,4 +1,4 @@
-# Référentiels de bonnes pratiques pour l'intégration de progiciels (REIPRO)
+# Référentiel de bonnes pratiques pour l'intégration de progiciels (REIPRO)
 
 Ce projet regroupe des bonnes pratiques pour l'intégration de progiciels.
 
