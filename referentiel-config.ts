@@ -104,11 +104,14 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
       config.i18n.refTitles = {
         es: { short: 'REIPRO', long: ' para REIPRO' },
         en: { short: 'REIPRO', long: ' for REIPRO' },
-        fr: { short: 'REIPRO', long: ' pour REIPRO' },
+        fr: {
+          short: 'Intégration de progiciels',
+          long: " Référentiel de bonnes pratiques pour l'intégration de progiciels",
+        },
       };
       config.refInformations = {
         currentVersion: '1.0.0',
-        creationYear: 2024,
+        creationYear: 2025,
       };
       config.featuresEnabled.lexique = true;
       config.featuresEnabled.linkToPersonas = false;
