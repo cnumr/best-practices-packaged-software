@@ -1,0 +1,43 @@
+---
+refID: '001'
+title: Retenir uniquement les fonctionnalités essentielles
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 2.0.0
+    idRef: '002'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/architecte-logicieldeveloppeur.mdx
+  - responsible: src/content/personas/fr/poamoa.mdx
+lifecycle: 1-specification
+rgesn: '1.1'
+environmental_impact: 2
+priority_implementation: 2
+moe: 3
+tiers: user-device
+saved_resources:
+  - cpu
+  - ram
+  - storage
+  - network
+  - requests
+validations:
+  - rule: de fonctionnalités dont l'utilité n'a pas été vérifiée avec un panel d'utilisateurs avant développement
+    maxValue: '0'
+---
+
+## Description
+
+Tout ajout de fonctionnalité implique plus de ressources dépensées, plus de code, plus d’assets, etc. Dans beaucoup de
+produits, des fonctionnalités ne sont peu ou pas utilisées. En réduisant la couverture et la profondeur fonctionnelle
+de l’application, on abaisse son coût de développement initial et les impacts environnementaux associés.
+
+On diminue ainsi mécaniquement l’infrastructure nécessaire à son exécution. Par ailleurs, à niveau ergonomique constant,
+plus l’application est pauvre fonctionnellement, plus elle sera simple à utiliser.
+
+Détecter une fonctionnalité non essentielle est possible au moment de l'analyse de l'expression du besoin et des étapes
+suivantes de conception et de priorisation fonctionnelles.

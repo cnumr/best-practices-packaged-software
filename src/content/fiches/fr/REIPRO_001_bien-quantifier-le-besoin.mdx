@@ -1,0 +1,45 @@
+---
+refID: '001'
+title: Bien quantifier le besoin
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 1.0.0
+    idRef: '001'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/architecte-logicieldeveloppeur.mdx
+  - responsible: src/content/personas/fr/poamoa.mdx
+lifecycle: 1-specification
+rgesn: '3.2'
+environmental_impact: 1
+priority_implementation: 1
+moe: 3
+tiers: user-device
+saved_resources:
+  - cpu
+  - ram
+  - storage
+  - network
+  - requests
+validations:
+  - rule: de fonctionnalités avec des dimensions supérieures au besoin
+    maxValue: '0'
+---
+
+## Description
+
+Les « dimensions » de chaque fonctionnalité doivent être définies
+précisément et dans leur ensemble. Exemples : le nombre d'éléments
+affichés dans un écran, la quantité de ressources réservée pour un
+composant.
+
+Si une information n'est pas précisée, c'est le niveau de qualité ou la
+quantité minimale qui est proposé. Par exemple 10 éléments affichés par
+défaut.
+
+Les valeurs par défaut, rarement modifiées par l\'utilisateur, doivent
+être choisies pour répondre au besoin avec un impact minimal.

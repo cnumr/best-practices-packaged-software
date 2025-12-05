@@ -1,0 +1,44 @@
+---
+refID: '009'
+title: Désactiver l'auto-start et activer l'auto-stop
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 9.0.0
+    idRef: '009'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/codeuseur-developpeuser.mdx
+lifecycle: 3-developement
+rgesn: NA
+environmental_impact: 3
+priority_implementation: 4
+moe: 5
+tiers: datacenter
+saved_resources:
+  - cpu
+  - ram
+validations:
+  - rule: de conteneurs avec l\'AutoStop désactivé
+    maxValue: '0'
+  - rule: de conteneurs sans paramétrage horaire
+    maxValue: '0'
+---
+
+## Description
+
+Il est primordial de faire en sorte de limiter le nombre de conteneurs actifs en même temps. En effet, ceux-ci utilisent
+des ressources numériques (CPU, RAM, disque, etc.) dont on souhaite réduire l’utilisation pour réduire les impacts
+environnementaux du projet.
+
+Pour cela il faut mettre en place une solution permettant de gérer l’arrêt automatique des conteneurs.
+Il est aussi important de limiter le plus possible le démarrage automatique des conteneurs.
+
+## Exemple
+
+J’ai un container Docker actif qui ne m’est pas utile dans l’immédiat. Il utilise des ressources inutilement. S’il
+s’éteignait automatiquement, il ne consommerait pas de ressources autres que de l’espace disque. Cette stratégie
+appliquée à l’ensemble des containers Docker permet de downsizer l’infrastructure matérielle dédiée.

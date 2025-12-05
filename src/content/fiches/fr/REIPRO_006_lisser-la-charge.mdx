@@ -1,0 +1,37 @@
+---
+refID: '006'
+title: Reporter les tâches qui peuvent l'être pour lisser la charge
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 6.0.0
+    idRef: '006'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/architecte-logicieldeveloppeur.mdx
+  - responsible: src/content/personas/fr/codeuseur-developpeuser.mdx
+lifecycle: 3-developement
+rgesn: '3.2'
+environmental_impact: 3
+priority_implementation: 3
+moe: 3
+tiers: datacenter
+saved_resources:
+  - cpu
+  - ram
+validations:
+  - rule: de conteneurs dont les dimensions sont calibrées pour une charge importante limitée à moins de 10% de sa vie
+    maxValue: '0'
+---
+
+## Description
+
+Dans certains cas, il est possible de décaler des traitements applicatifs dans le temps de telle sorte que la charge
+serveur soit lissée. C’est particulièrement intéressant si des pics de charge ponctuels nécessitent de dimensionner
+le composant (conteneur) à une taille plus grande que ce qui est requis la majeure partie du temps.
+
+Utiliser une stratégie asynchrone et une mise en attente (par exemple avec une file d’attente) des traitements permet
+de limiter la consommation de ressources.
