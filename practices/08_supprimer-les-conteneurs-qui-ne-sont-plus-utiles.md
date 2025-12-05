@@ -41,8 +41,8 @@ donc plus utile.
 
 | Le nombre...                             | est égal à |
 |------------------------------------------|------------|
-| de conteneurs par développeur est        | 0          |
-| de conteneurs par consultant fonctionnel | 0          |
+| de conteneurs par développeur est        | 5          |
+| de conteneurs par consultant fonctionnel | 2          |
 
 
 ## Liens avec le RGESN

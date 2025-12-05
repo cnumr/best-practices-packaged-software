@@ -23,5 +23,5 @@ N'hésitez pas à lire [le guide des contributeurs](CONTRIBUTING.md).
 * [Répartir les builds dans le temps](practices/11_repartir-les-builds-dans-le-temps.md)
 * [Limiter le nombre de conteneurs utilisés pendant le développement](practices/12_limiter-le-nombre-de-conteneurs-utilises-pendant-le-developpement.md)
 * [Vérifier régulièrement la consommation des conteneurs déployés](practices/13_verifier-regulierement-la-consommation-des-conteneurs-deployes.md)
-* [Monitorer les ressources](practices/14_monitorer-des-ressources.md)
+* [Monitorer les ressources](practices/14_monitorer-les-ressources)
 * [Proposer le module durabilité aux clients](practices/15_proposer-le-module-durabilite-aux-clients.md)

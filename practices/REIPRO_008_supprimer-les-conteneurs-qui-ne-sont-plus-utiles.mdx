@@ -1,0 +1,41 @@
+---
+refID: '008'
+title: Supprimer les containers qui ne sont plus utiles
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 8.0.0
+    idRef: '008'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/codeuseur-developpeuser.mdx
+lifecycle: 3-developement
+rgesn: 2.7
+environmental_impact: 3
+priority_implementation: 3
+moe: 4
+tiers: datacenter
+saved_resources:
+  - storage
+validations:
+  - rule: de conteneurs par développeur est
+    maxValue: '5'
+  - rule: de conteneurs par développeur est
+    maxValue: '2'
+---
+
+## Description
+
+Le dimensionnement de la BDD de Docker est directement corrélé au nombre de conteneurs activables. Pour chaque
+conteneur (actif ou non), Docker garde une copie de la BDD et du paramétrage serveur Business Central.
+
+Il n’est pas nécessaire de garder des données qui ne seront jamais réutilisées par la suite. De plus, il est
+préférable de recréer un conteneur lors d’une nouvelle session de DEV pour être sûr d’avoir le dernier contexte client.
+
+## Exemple
+J’ai fait un dev il y a un mois. Je dois refaire un dev aujourd’hui. Mon client étant en SaaS, la version de Business
+Central a sûrement changé. Il faut donc que je travaille sur un nouveau conteneur. Mon ancien conteneur n'est
+donc plus utile.
