@@ -2,7 +2,7 @@
 refID: '1.02'
 title: Nettoyer dès l'installation
 createdAt: 2024-01-20T13:17:16.663Z
-updatedAt: 2025-12-19T14:14:55.978Z
+updatedAt: 2025-12-19T14:23:35.519Z
 language: fr
 published: true
 refType: RWP
@@ -53,7 +53,7 @@ Pour éviter cette surcharge initiale, dès l'installation en \[\[local]] ou en 
 
 **Pour désactiver les commentaires pour des contenus spécifiques**, rendez-vous dans la zone "Discussion" du contenu, puis décochez la case "Autoriser les commentaires"
 
-**Pour désactiver les commentaires de tout le site en \[\[front-office|front]]**, rendez-vous dans "Réglages > Commentaires > Réglages de publication par défaut", commencez par décocher les cases précochées, aussi décochez la case "Afficher les avatars". Ensuite, il existe des extensions qui permettent de désactiver complètement les commentaires. Ainsi, la fonctionnalité n'apparaîtra ni pour les visiteurs ni dans l'administration.
+**Pour désactiver les commentaires de tout le site en \[\[front-office|front]]**, rendez-vous dans "Réglages > Commentaires > Réglages de publication par défaut", commencez par décocher les cases précochées, aussi décochez la case "Afficher les avatars". Ensuite, il existe des extensions qui permettent de désactiver complètement les commentaires. Ainsi, la fonctionnalité n'apparaîtra ni pour les visiteurs, ni dans l'administration.
 
 **Pour désactiver complètement la fonctionnalité commentaire**, utilisez une extension dédiée (vérifiez que ce paramétrage n'est pas disponible dans une autre extension déjà présente).
 
@@ -76,7 +76,7 @@ Ajoutez ce code dans le fichier functions.php de votre thème enfant :
 
 **Pour désactiver les commentaires de tout le site en \[\[front-office|front]]**, créez votre thème enfant et surchargez les fichiers page.php et single.php pour ne plus appeler la fonction `comments_template()`;
 
-**Pour désactiver les Emojis**, vous pouvez ajouter du code dans le functions.php de votre thème enfant tel que présenté dans la source cité en bas de cette page.
+**Pour désactiver les Emojis**, vous pouvez créer une extenstion incluant le code présenté dans "Solution code pas-à-pas"  de cette page. Attention à [respecter les conventions de codage des extensions](https://developer.wordpress.org/plugins/plugin-basics/) (vous pouvez vous inspirez de Hello Dolly ou Akismet).
 
 ## Sources
 
