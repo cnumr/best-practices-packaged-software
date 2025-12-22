@@ -8,10 +8,11 @@ import { FichePermalink } from './fiche/Permalink';
 import { FicheTableValidations } from './fiche/TableValidation';
 import { FicheVersionDisplay } from './fiche/VersionDisplay';
 import { FichesQuery } from '../../tina/__generated__/types';
-import { MdxComponents } from '../mdx/mdx-components';
+import { LexiqueProvider } from '../mdx/LexiqueContext';
 import React from 'react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { cn } from '../../utils/cn';
+import { getMdxComponents } from '../mdx/mdx-components';
 import { ui } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 
@@ -23,6 +24,7 @@ export function FichesPage(props: {
   variables: object;
   query: string;
   params: { lang: keyof typeof ui };
+  lexiqueData?: Record<string, any>;
 }) {
   const { data } = useTina(props);
   const t = useTranslations(props.params.lang);
@@ -72,13 +74,17 @@ export function FichesPage(props: {
           data-tina-field={tinaField(data.fiches, 'body')}
           className={cn('markdown-content lg:col-span-1')}>
           {data.fiches.body && (
-            <div className="markdown-content">
-              <TinaMarkdown
-                content={data.fiches.body}
-                // @ts-ignore
-                components={MdxComponents}
-              />
-            </div>
+            <LexiqueProvider
+              lang={props.params.lang}
+              lexiqueData={props.lexiqueData}>
+              <div className="markdown-content">
+                <TinaMarkdown
+                  content={data.fiches.body}
+                  // @ts-ignore
+                  components={getMdxComponents(props.params.lang)}
+                />
+              </div>
+            </LexiqueProvider>
           )}
           <FicheTableValidations
             validations={data.fiches.validations}

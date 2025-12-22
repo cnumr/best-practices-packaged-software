@@ -14,6 +14,28 @@ export default async function Page({ params }) {
     relativePath: `${lang}/${slug}.mdx`,
   });
 
+  // Charger toutes les entrées du lexique pour cette langue
+  const lexiqueRes = await client.queries.lexiqueConnection({
+    filter: {
+      language: {
+        eq: lang
+      }
+    },
+    first: 1000
+  });
+
+  // Créer un dictionnaire des entrées du lexique par clé (filename sans extension)
+  const lexiqueData: Record<string, any> = {};
+  if (lexiqueRes.data.lexiqueConnection.edges) {
+    for (const edge of lexiqueRes.data.lexiqueConnection.edges) {
+      if (edge?.node) {
+        // Normaliser la clé en enlevant l'extension .mdx si présente
+        const key = edge.node._sys.filename.replace(/\.mdx$/, '');
+        // Sérialiser les données pour les rendre compatibles avec les composants clients
+        lexiqueData[key] = JSON.parse(JSON.stringify(edge.node));
+      }
+    }
+  }
 
   const cursor = btoa(res.data.fiches.id.replaceAll('\\','/'));
   const {data:dataAfter} =  await client.queries.fichesConnection({
@@ -45,6 +67,7 @@ export default async function Page({ params }) {
       query={res.query}
       variables={res.variables}
       params={params}
+      lexiqueData={lexiqueData}
     />
     <InternalNavigation lang={lang} previousPage={previousPage} nextPage={nextPage} className='' />
     </>

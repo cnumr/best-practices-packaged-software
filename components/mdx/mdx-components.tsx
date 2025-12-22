@@ -6,10 +6,14 @@ import { HeadingsH1 } from './Headings/Headings_h1';
 import { HeadingsH2 } from './Headings/Headings_h2';
 import { HeadingsH3 } from './Headings/Headings_h3';
 import { HeadingsStrong } from './Headings/Headings_strong';
+import { LexiqueText } from './LexiqueText';
 import { PositionableImage } from './PositionableImage';
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { ui } from '../../i18n/ui';
+
+type Lang = keyof typeof ui;
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -30,7 +34,7 @@ const CodeBlock = ({ language, value }) => {
   );
 };
 
-export const MdxComponents = {
+export const getMdxComponents = (lang: Lang = 'fr') => ({
   CTAWithIcon: CTAWithIcon,
   h1: HeadingsH1,
   h2: HeadingsH2,
@@ -40,6 +44,36 @@ export const MdxComponents = {
   h6: HeadingsStrong,
   PositionableImage: PositionableImage,
   code_block: CodeBlock,
+  p: (props: any) => (
+    <LexiqueText
+      {...props}
+      tag="p"
+    />
+  ),
+  li: (props: any) => (
+    <LexiqueText
+      {...props}
+      tag="li"
+    />
+  ),
+  blockquote: (props: any) => (
+    <LexiqueText
+      {...props}
+      tag="blockquote"
+    />
+  ),
+  td: (props: any) => (
+    <LexiqueText
+      {...props}
+      tag="td"
+    />
+  ),
+  th: (props: any) => (
+    <LexiqueText
+      {...props}
+      tag="th"
+    />
+  ),
   img: (props) => {
     // @ts-ignore
     // console.log('props', props);
@@ -66,4 +100,7 @@ export const MdxComponents = {
       </>
     );
   },
-};
+});
+
+// Export par défaut pour la rétrocompatibilité
+export const MdxComponents = getMdxComponents();
