@@ -123,6 +123,30 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
       config.featuresEnabled.rgesnField = true;
       break;
 
+    case 'RIA':
+      config.i18n.locales = ['fr'];
+      config.i18n.refTitles = {
+        es: { short: 'RIA', long: ' para RIA' },
+        en: { short: 'RIA', long: ' for RIA' },
+        fr: {
+          short: "Utilisation de l'IA générative",
+          long: " Référentiel de bonnes pratiques pour l'utilisation de l'IA générative",
+        },
+      };
+      config.refInformations = {
+        currentVersion: '1.0.0',
+        creationYear: 2025,
+      };
+      config.featuresEnabled.lexique = true;
+      config.featuresEnabled.linkToPersonas = false;
+      config.featuresEnabled.priority_implementation = MESURE_ON_5;
+      config.featuresEnabled.environmental_impact = MESURE_ON_5;
+      config.featuresEnabled.moe = true;
+      config.featuresEnabled.tiers = true;
+      config.featuresEnabled.scope = false;
+      config.featuresEnabled.rgesnField = true;
+      break;
+
     case 'RWEB':
       config.i18n.locales = ['fr', 'en', 'es'];
       config.i18n.languages = {
