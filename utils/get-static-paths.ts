@@ -9,6 +9,11 @@ export function getStaticPathsFromFilesystem(
   const collectionDir = path.join(CONTENT_DIR, collection);
   const results: { lang: string; slug: string }[] = [];
 
+  // Si le dossier n'existe pas, retourner un tableau vide
+  if (!fs.existsSync(collectionDir)) {
+    return results;
+  }
+
   // List language directories
   const langs = fs.readdirSync(collectionDir).filter((item) => {
     const itemPath = path.join(collectionDir, item);

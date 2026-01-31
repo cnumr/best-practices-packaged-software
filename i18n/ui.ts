@@ -45,6 +45,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'No hay contenido disponible.',
     'Contribuez !': '¡Contribuir!',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'Vea el método de contribución en CNUMR GitHub',
@@ -218,6 +219,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'No content available.',
     'Contribuez !': 'Contribute!',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'See the contribution method on the CNUMR GitHub',
@@ -392,6 +394,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'Aucun contenu disponible.',
     'Contribuez !': 'Contribuez !',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'Voir la méthode de contribution sur le GitHub du CNUMR',

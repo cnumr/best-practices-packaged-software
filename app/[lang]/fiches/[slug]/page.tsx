@@ -15,30 +15,32 @@ export default async function Page({ params }) {
   });
 
   // Charger toutes les entrées du lexique pour cette langue
-  let lexiqueRes:
-    | Awaited<ReturnType<typeof client.queries.lexiqueConnection>>
-    | undefined = undefined;
-  if (getRefConfig().featuresEnabled.lexique_tooltips) {
-    lexiqueRes = await client.queries.lexiqueConnection({
-      filter: {
-        language: {
-          eq: lang,
-        },
-      },
-      first: 1000,
-    });
-  }
-
-  // Créer un dictionnaire des entrées du lexique par clé (filename sans extension)
   const lexiqueData: Record<string, any> = {};
-  if (lexiqueRes && lexiqueRes.data.lexiqueConnection.edges) {
-    for (const edge of lexiqueRes.data.lexiqueConnection.edges) {
-      if (edge?.node) {
-        // Normaliser la clé en enlevant l'extension .mdx si présente
-        const key = edge.node._sys.filename.replace(/\.mdx$/, '');
-        // Sérialiser les données pour les rendre compatibles avec les composants clients
-        lexiqueData[key] = JSON.parse(JSON.stringify(edge.node));
+  if (getRefConfig().featuresEnabled.lexique_tooltips) {
+    try {
+      const lexiqueRes = await client.queries.lexiqueConnection({
+        filter: {
+          language: {
+            eq: lang,
+          },
+        },
+        first: 1000,
+      });
+
+      // Créer un dictionnaire des entrées du lexique par clé (filename sans extension)
+      if (lexiqueRes && lexiqueRes.data.lexiqueConnection.edges) {
+        for (const edge of lexiqueRes.data.lexiqueConnection.edges) {
+          if (edge?.node) {
+            // Normaliser la clé en enlevant l'extension .mdx si présente
+            const key = edge.node._sys.filename.replace(/\.mdx$/, '');
+            // Sérialiser les données pour les rendre compatibles avec les composants clients
+            lexiqueData[key] = JSON.parse(JSON.stringify(edge.node));
+          }
+        }
       }
+    } catch {
+      // Si le lexique n'existe pas, continuer sans les tooltips
+      console.warn('Lexique content not available, tooltips will be disabled');
     }
   }
 

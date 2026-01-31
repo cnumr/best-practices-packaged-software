@@ -104,7 +104,7 @@ export function FichesPage(props: {
           className={cn('markdown-content lg:col-span-1')}>
           {data.fiches.body && (
             <ConditionalLexiqueWrapper
-              enabled={getRefConfig().featuresEnabled.lexique_tooltips}
+              enabled={getRefConfig().featuresEnabled.lexique_tooltips && Object.keys(props.lexiqueData || {}).length > 0}
               lang={props.params.lang}
               lexiqueData={props.lexiqueData}>
               <TinaMarkdown
