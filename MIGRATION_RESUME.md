@@ -68,8 +68,16 @@ pnpm add -D mongodb@^7.0.0
 
 ## 📋 Checklist rapide
 
-- [ ] Phase 1 : Mise à jour sécurité
-- [ ] Phase 2 : Suppression `next-plugin-preval` + Migration Pagefind
+- [x] Phase 1 : Mise à jour sécurité ✅ (31 janvier 2026)
+- [x] Phase 2 : Suppression `next-plugin-preval` + Migration Pagefind ✅ (31 janvier 2026)
+  - [x] Suppression `next-plugin-preval`
+  - [x] Suppression fichiers `.preval.ts`
+  - [x] Simplification `next.config.js`
+  - [x] Création `utils/get-static-paths.ts`
+  - [x] Installation et configuration Pagefind
+  - [x] Création `pagefind-search.tsx`
+  - [x] Attributs `data-pagefind-*` sur toutes les pages
+  - [x] Suppression `fuse.js` et `itemsjs`
 - [ ] Phase 3 : Amélioration code
 - [ ] Phase 4 : Nettoyage final
 - [ ] Tests complets

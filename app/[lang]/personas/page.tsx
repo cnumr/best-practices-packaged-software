@@ -1,6 +1,5 @@
 import { useTranslations } from '../../../i18n/utils';
-import { PersonasConnectionQuery } from '../../../tina/__generated__/types';
-import personasData from './personas.preval';
+import { client } from '../../../tina/__generated__/databaseClient';
 import Link from 'next/link';
 import { ui } from '../../../i18n/ui';
 
@@ -11,11 +10,12 @@ export async function generateStaticParams() {
 
 export default async function Home({ params }) {
   const { lang } = params;
-  const { data }: { data: PersonasConnectionQuery } = personasData;
+  const { data } = await client.queries.personasConnection({
+    first: 1000,
+    filter: { language: { eq: lang } },
+  });
   const t = useTranslations(lang);
-  const entries = data.personasConnection.edges?.filter(
-    (e) => e?.node?.language === lang
-  );
+  const entries = data.personasConnection.edges;
   return (
     <main className="mx-auto my-8 min-h-[400px] px-4 lg:max-w-5xl lg:px-0">
       <div className="group flex flex-col gap-4">

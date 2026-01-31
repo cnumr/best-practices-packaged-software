@@ -77,7 +77,6 @@ Uses Next.js App Router with dynamic `[lang]` segment for i18n:
 - `app/[lang]/fiches/` - Best practices listing and detail pages
 - `app/[lang]/lexique/` - Glossary
 - `app/[lang]/personas/` - Personas
-- `*.preval.ts` files - Pre-evaluated data using next-plugin-preval
 
 ### TinaCMS Configuration (`tina/`)
 
@@ -127,6 +126,7 @@ Examples:
 
 ## Important Notes
 
-- The local build (`pnpm build`) does not work - use Vercel for production builds
+- **Local build** : `pnpm build-local` fonctionne (lance TinaCMS en arrière-plan pendant le build Next.js)
+- **Production build** : `pnpm build` nécessite MongoDB et les variables d'environnement GitHub
 - When running locally with `pnpm dev`, MongoDB is not required (`TINA_PUBLIC_IS_LOCAL=true`)
 - Content changes trigger automatic Vercel deployments when pushed to GitHub

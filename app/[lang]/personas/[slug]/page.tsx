@@ -1,11 +1,9 @@
 import { client } from '../../../../tina/__generated__/databaseClient';
 import { PersonasPage } from '../../../../components/pages/personas-page';
+import { getStaticPathsFromFilesystem } from '../../../../utils/get-static-paths';
 
-export async function generateStaticParams() {
-  const res = await client.queries.personasConnection({
-    first: 1000
-  });
-  return res.data.personasConnection.edges?.map((e) => ({ lang: e?.node?.language, slug: e?.node?._sys.filename }))
+export function generateStaticParams() {
+  return getStaticPathsFromFilesystem('personas');
 }
 
 export default async function Page({ params }) {
@@ -19,6 +17,7 @@ export default async function Page({ params }) {
       data={JSON.parse(JSON.stringify(res.data))}
       query={res.query}
       variables={res.variables}
+      lang={lang}
     />
   );
 }

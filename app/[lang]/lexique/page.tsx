@@ -1,12 +1,8 @@
-import {
-  Lexique,
-  LexiqueConnectionQuery,
-} from '../../../tina/__generated__/types';
-
+import { Lexique } from '../../../tina/__generated__/types';
 import Link from 'next/link';
 import { MdxComponents } from '../../../components/mdx/mdx-components';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import lexiqueData from './lexique.preval';
+import { client } from '../../../tina/__generated__/databaseClient';
 import { ui } from '../../../i18n/ui';
 import { useTranslations } from '../../../i18n/utils';
 
@@ -17,10 +13,13 @@ export async function generateStaticParams() {
 
 export default async function Home({ params }) {
   const { lang } = params;
-  const { data }: { data: LexiqueConnectionQuery } = lexiqueData;
+  const { data } = await client.queries.lexiqueConnection({
+    first: 1000,
+    filter: { language: { eq: lang } },
+  });
   const t = useTranslations(lang);
   const entries = data.lexiqueConnection.edges?.filter(
-    (e) => e?.node?.language === lang && e?.node?.published
+    (e) => e?.node?.published
   );
   if (!entries) {
     return null;

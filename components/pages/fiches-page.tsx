@@ -62,15 +62,20 @@ export function FichesPage(props: {
 
   return (
     <main className="mx-auto my-8 min-h-[400px] px-4 lg:max-w-5xl lg:px-0">
-      <article className="lg:grid lg:grid-cols-[1fr_5fr] lg:gap-4">
+      <article
+        className="lg:grid lg:grid-cols-[1fr_5fr] lg:gap-4"
+        data-pagefind-body
+        data-pagefind-meta={`title:${data.fiches.title}`}>
+        <span className="hidden" data-pagefind-meta={`refid:${data.fiches.refID}`} />
         <i className="flex items-center">
           {t('Mise à jour le')}{' '}
           {formatDate(data.fiches.updatedAt || data.fiches.updatedAt)}
         </i>
-        <span
-          className="hidden"
-          data-pagefind-filter="type">
+        <span className="hidden" data-pagefind-filter="type">
           {t('Bonnes pratiques')}
+        </span>
+        <span className="hidden" data-pagefind-filter="lang">
+          {props.params.lang}
         </span>
         <FichePermalink />
         <h1 className="flex flex-col items-start gap-2 lg:col-span-2 lg:flex-row lg:items-center lg:gap-0">

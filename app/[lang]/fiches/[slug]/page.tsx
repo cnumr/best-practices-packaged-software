@@ -1,15 +1,11 @@
-import { FichesConnectionQuery } from '../../../../tina/__generated__/types';
 import { FichesPage } from '../../../../components/pages/fiches-page';
 import { InternalNavigation } from '../../../../components/pages/fiche/InternalNav';
 import { client } from '../../../../tina/__generated__/databaseClient';
-import fichesData from '../fiches.preval';
 import { getRefConfig } from '../../../../referentiel-config';
-export async function generateStaticParams() {
-  const { data }: { data: FichesConnectionQuery } = fichesData;
-  return data.fichesConnection.edges?.map((e) => ({
-    lang: e?.node?.language,
-    slug: e?.node?._sys.filename,
-  }));
+import { getStaticPathsFromFilesystem } from '../../../../utils/get-static-paths';
+
+export function generateStaticParams() {
+  return getStaticPathsFromFilesystem('fiches');
 }
 export default async function Page({ params }) {
   const { lang, slug } = params;
