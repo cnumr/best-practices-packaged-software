@@ -10,6 +10,7 @@ import { LexiqueText } from './LexiqueText';
 import { PositionableImage } from './PositionableImage';
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { getRefConfig } from '../../referentiel-config';
 import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { ui } from '../../i18n/ui';
 
@@ -44,36 +45,40 @@ export const getMdxComponents = (lang: Lang = 'fr') => ({
   h6: HeadingsStrong,
   PositionableImage: PositionableImage,
   code_block: CodeBlock,
-  p: (props: any) => (
-    <LexiqueText
-      {...props}
-      tag="p"
-    />
-  ),
-  li: (props: any) => (
-    <LexiqueText
-      {...props}
-      tag="li"
-    />
-  ),
-  blockquote: (props: any) => (
-    <LexiqueText
-      {...props}
-      tag="blockquote"
-    />
-  ),
-  td: (props: any) => (
-    <LexiqueText
-      {...props}
-      tag="td"
-    />
-  ),
-  th: (props: any) => (
-    <LexiqueText
-      {...props}
-      tag="th"
-    />
-  ),
+  ...(getRefConfig().featuresEnabled.lexique_tooltips
+    ? {
+        p: (props: any) => (
+          <LexiqueText
+            {...props}
+            tag="p"
+          />
+        ),
+        li: (props: any) => (
+          <LexiqueText
+            {...props}
+            tag="li"
+          />
+        ),
+        blockquote: (props: any) => (
+          <LexiqueText
+            {...props}
+            tag="blockquote"
+          />
+        ),
+        td: (props: any) => (
+          <LexiqueText
+            {...props}
+            tag="td"
+          />
+        ),
+        th: (props: any) => (
+          <LexiqueText
+            {...props}
+            tag="th"
+          />
+        ),
+      }
+    : {}),
   img: (props) => {
     // @ts-ignore
     // console.log('props', props);

@@ -46,6 +46,7 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
     },
     featuresEnabled: {
       lexique: false,
+      lexique_tooltips: false,
       fiches: true,
       linkToPersonas: false,
       priority_implementation: MESURE_ON_3,
@@ -92,6 +93,7 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
       config.featuresEnabled.tiers = false;
       config.featuresEnabled.scope = true;
       config.featuresEnabled.rgesnField = false;
+      config.featuresEnabled.lexique_tooltips = true;
       break;
 
     case 'REIPRO':

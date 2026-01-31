@@ -13,8 +13,32 @@ import React from 'react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { cn } from '../../utils/cn';
 import { getMdxComponents } from '../mdx/mdx-components';
+import { getRefConfig } from '../../referentiel-config';
 import { ui } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
+
+function ConditionalLexiqueWrapper({
+  enabled,
+  lang,
+  lexiqueData,
+  children,
+}: {
+  enabled: boolean;
+  lang: keyof typeof ui;
+  lexiqueData?: Record<string, any>;
+  children: React.ReactNode;
+}) {
+  if (enabled) {
+    return (
+      <LexiqueProvider
+        lang={lang}
+        lexiqueData={lexiqueData}>
+        <div className="markdown-content">{children}</div>
+      </LexiqueProvider>
+    );
+  }
+  return <div className="markdown-content">{children}</div>;
+}
 
 const REF_NAME = process.env.NEXT_PUBLIC_REF_NAME
   ? process.env.NEXT_PUBLIC_REF_NAME
@@ -74,17 +98,16 @@ export function FichesPage(props: {
           data-tina-field={tinaField(data.fiches, 'body')}
           className={cn('markdown-content lg:col-span-1')}>
           {data.fiches.body && (
-            <LexiqueProvider
+            <ConditionalLexiqueWrapper
+              enabled={getRefConfig().featuresEnabled.lexique_tooltips}
               lang={props.params.lang}
               lexiqueData={props.lexiqueData}>
-              <div className="markdown-content">
-                <TinaMarkdown
-                  content={data.fiches.body}
-                  // @ts-ignore
-                  components={getMdxComponents(props.params.lang)}
-                />
-              </div>
-            </LexiqueProvider>
+              <TinaMarkdown
+                content={data.fiches.body}
+                // @ts-ignore
+                components={getMdxComponents(props.params.lang)}
+              />
+            </ConditionalLexiqueWrapper>
           )}
           <FicheTableValidations
             validations={data.fiches.validations}
