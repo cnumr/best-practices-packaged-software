@@ -80,22 +80,19 @@ export const getMdxComponents = (lang: Lang = 'fr') => ({
       }
     : {}),
   img: (props) => {
-    // @ts-ignore
-    // console.log('props', props);
+    // @ts-ignore - TinaCMS image props include 'url' not in standard types
     const url = `${props.url.replace('/public', '')}`;
-    // console.log('url', url);
-    const common = { alt: props.alt || 'Image', width: 800, height: 400 };
+
+    const alt = props.alt || 'Image';
+    const common = { alt, width: 800, height: 400 };
     const {
-      props: { srcSet: image, ...rest },
+      props: { srcSet: image, alt: _, ...rest },
     } = getImageProps({ ...common, src: url });
     return (
       <>
         <picture>
           <source srcSet={image} />
-          <img
-            alt={props.alt || 'Image'}
-            {...rest}
-          />
+          <img alt={alt} {...rest} />
         </picture>
         {props.caption && (
           <figcaption className="text-center text-sm text-gray-500">

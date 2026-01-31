@@ -214,7 +214,6 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
   return config;
 };
 
-export const getCurrentRef = () => {
-  // @ts-ignore
-  return process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
+export const getCurrentRef = (): string => {
+  return process.env.NEXT_PUBLIC_REF_NAME ?? 'RWEB';
 };

@@ -1,5 +1,6 @@
 import '../globals.css';
 
+import { ErrorBoundary } from '../../components/ErrorBoundary';
 import Footer from '../../components/footer';
 import GlobalSearch from '../../components/search/global-search';
 import Header from '../../components/header';
@@ -40,7 +41,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Header lang={params.lang} />
           <GlobalSearch lang={params.lang} />
-          {children}
+          <ErrorBoundary>{children}</ErrorBoundary>
           <Footer lang={params.lang} />
         </body>
       </html>

@@ -13,10 +13,11 @@
     "lint": "pnpm lint:next && pnpm lint:md",
     "lint:next": "next lint",
     "lint:md": "eslint . -c .md.eslintrc --ext .md,.mdx",
+    "check-types": "tsc --noEmit",
     "validate:mdx": "pnpm remark ./**/*.mdx",
     "prettier": "prettier . --write",
-    "docker:up": "docker compose -f .local_mogodb/docker-compose.yml up -d",
-    "docker:down": "docker compose -f .local_mogodb/docker-compose.yml down",
+    "docker:up": "docker compose -f .local_mongodb/docker-compose.yml up -d",
+    "docker:down": "docker compose -f .local_mongodb/docker-compose.yml down",
     "clean": "rm -rf .next && rm -rf tina/__generated__"
   },
   "devDependencies": {
@@ -61,7 +62,8 @@
     "tinacms-authjs": "5.0.9",
     "tinacms-gitprovider-github": "2.0.19",
     "typescript": "5.9.3",
-    "upstash-redis-level": "1.1.1"
+    "upstash-redis-level": "1.1.1",
+    "zod": "^4.3.6"
   },
   "prettier": {
     "printWidth": 80,

@@ -78,10 +78,17 @@ pnpm add -D mongodb@^7.0.0
   - [x] Création `pagefind-search.tsx`
   - [x] Attributs `data-pagefind-*` sur toutes les pages
   - [x] Suppression `fuse.js` et `itemsjs`
-- [ ] Phase 3 : Amélioration code
-- [ ] Phase 4 : Nettoyage final
-- [ ] Tests complets
-- [ ] Documentation mise à jour
+- [x] Phase 3 : Amélioration code ✅ (31 janvier 2026)
+  - [x] Installation Zod pour validation env
+  - [x] Création ErrorBoundary
+  - [x] Ajout commande `check-types`
+  - [x] Nettoyage console.log
+  - [x] Documentation @ts-ignore
+- [x] Phase 4 : Nettoyage final ✅ (31 janvier 2026)
+  - [x] Correction typo `.local_mogodb` → `.local_mongodb`
+  - [x] Mise à jour CLAUDE.md (APEX + commandes validation)
+- [x] Tests complets (build-local OK, 117 pages)
+- [x] Documentation mise à jour
 
 ## 📖 Documentation complète
 

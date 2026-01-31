@@ -89,7 +89,7 @@ export function FichesPage(props: {
           </span>
         </h1>
         <FicheVersionDisplay
-          // @ts-ignore
+          // @ts-ignore - TinaCMS generated types don't include 'versions' field
           versions={data.fiches['versions']}
           data={data}
         />
@@ -109,7 +109,7 @@ export function FichesPage(props: {
               lexiqueData={props.lexiqueData}>
               <TinaMarkdown
                 content={data.fiches.body}
-                // @ts-ignore
+                // @ts-ignore - TinaMarkdown components type doesn't match custom MDX components
                 components={getMdxComponents(props.params.lang)}
               />
             </ConditionalLexiqueWrapper>

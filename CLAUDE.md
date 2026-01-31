@@ -18,6 +18,13 @@ Appliquer systématiquement la méthode **APEX** pour chaque tâche :
 - Toujours attendre la validation du plan avant d'exécuter
 - Toujours vérifier le résultat après implémentation
 
+**Commandes de validation (eXamine) :**
+```bash
+pnpm check-types  # Vérifier les types TypeScript
+pnpm lint         # Vérifier le linting
+pnpm build-local  # Vérifier que le build fonctionne
+```
+
 ## Project Overview
 
 This is the **WordPress Eco-design Best Practices Reference** (RWP - Référentiel WordPress) maintained by the Collectif Green IT (CNUMR). It's a Next.js web application that uses TinaCMS as a headless CMS to manage eco-design best practices content in MDX format.
@@ -46,10 +53,11 @@ pnpm dev:prod
 # Production build (requires MongoDB)
 pnpm build
 
-# Lint
+# Lint & Type check
 pnpm lint           # Run both Next.js and MDX linting
 pnpm lint:next      # Next.js linting only
 pnpm lint:md        # MDX linting only
+pnpm check-types    # TypeScript type checking
 
 # Format code
 pnpm prettier
