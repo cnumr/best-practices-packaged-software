@@ -20,9 +20,16 @@ allOf:
       responsible:
         type: array
         minItems: 1
-        properties:
-          responsible:
-            type: string
+        items:
+          type: object
+          required:
+            - responsible
+          properties:
+            responsible:
+              type: string
+              minLength: 1
+              pattern: '^src/content/personas/'
+              description: 'Référence vers un persona (format: src/content/personas/{lang}/{nom-persona}.mdx)'
       lifecycle:
         type: string
       environmental_impact:
@@ -41,6 +48,8 @@ allOf:
       saved_resources:
         type: array
         minItems: 1
+      rgesn:
+        type: string
       validations:
         type: array
         minItems: 1
@@ -59,7 +68,7 @@ allOf:
       - lifecycle
       - environmental_impact
       - priority_implementation
-      # RWEB
+      # RWP
       - scope
       - saved_resources
       - validations

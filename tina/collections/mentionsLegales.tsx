@@ -21,9 +21,6 @@ const mentionsLegales: Collection = {
   match: { include: '{en,fr,es}' },
   ui: {
     router: ({ document }) => {
-      console.log('🚀 ~ document:', document);
-      // navigate to the post that was clicked
-      // return document._sys.path;
       return `/${document._sys.breadcrumbs[0]}/mentions-legales`;
     },
     beforeSubmit: onDefaultPagesBeforeSubmit,

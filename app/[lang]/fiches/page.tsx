@@ -6,12 +6,11 @@ import { FichesCardFilter } from '../../../components/pages/fiche/FicheFilter';
 import { FichesTableView } from '../../../components/pages/fiche/TableView';
 import { Fragment } from 'react';
 import { useTranslations } from '../../../i18n/utils';
-import { ui } from '../../../i18n/ui';
+import { code_languages } from '../../../i18n/ui';
 import { client } from '../../../tina/__generated__/databaseClient';
 
 export async function generateStaticParams() {
-  const lang = Object.keys(ui);
-  return lang.map((lang) => ({ lang }));
+  return code_languages.map((lang) => ({ lang }));
 }
 
 export default async function Home({ params }) {

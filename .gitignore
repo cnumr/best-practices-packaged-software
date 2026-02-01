@@ -11,6 +11,9 @@
 /.next/
 /out/
 
+# pagefind (generated at build time)
+/public/pagefind/
+
 # production
 /build
 
@@ -24,3 +27,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+tsconfig.tsbuildinfo

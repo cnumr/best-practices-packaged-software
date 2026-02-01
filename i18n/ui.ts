@@ -45,6 +45,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'No hay contenido disponible.',
     'Contribuez !': '¡Contribuir!',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'Vea el método de contribución en CNUMR GitHub',
@@ -88,6 +89,12 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Falta definición, verifique el formato del enlace o si la entrada existe en el Glosario.',
+    
+    // src/components/mdx/LexiqueTooltip.tsx
+    'lexique.aria-label': 'Definición de {term}. Presione Entrar o Espacio para mostrar.',
+    'lexique.aria-label-tooltip': 'Definición de {term}',
+    'lexique.loading': 'Cargando...',
+    'lexique.not-found': 'Término "{term}" no encontrado en el glosario',
 
     // src/components/CardView.astro
     Fort: 'Fuerte',
@@ -212,6 +219,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'No content available.',
     'Contribuez !': 'Contribute!',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'See the contribution method on the CNUMR GitHub',
@@ -255,6 +263,12 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Missing definition, check the formatting of the link or if the entry exists in the Glossary.',
+    
+    // src/components/mdx/LexiqueTooltip.tsx
+    'lexique.aria-label': 'Definition of {term}. Press Enter or Space to display.',
+    'lexique.aria-label-tooltip': 'Definition of {term}',
+    'lexique.loading': 'Loading...',
+    'lexique.not-found': 'Term "{term}" not found in the glossary',
 
     // src/components/CardView.astro
     Fort: 'Strong',
@@ -380,6 +394,7 @@ export const ui = {
 
     // src/pages/[lang]/personas/index.astro
     Personas: 'Personas',
+    'Aucun contenu disponible.': 'Aucun contenu disponible.',
     'Contribuez !': 'Contribuez !',
     'Voir la méthode de contribution sur le GitHub du CNUMR':
       'Voir la méthode de contribution sur le GitHub du CNUMR',
@@ -423,6 +438,12 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.',
+    
+    // src/components/mdx/LexiqueTooltip.tsx
+    'lexique.aria-label': 'Définition de {term}. Appuyez sur Entrée ou Espace pour afficher.',
+    'lexique.aria-label-tooltip': 'Définition de {term}',
+    'lexique.loading': 'Chargement...',
+    'lexique.not-found': 'Terme "{term}" non trouvé dans le lexique',
 
     // src/components/CardView.astro
     Fort: 'Fort',

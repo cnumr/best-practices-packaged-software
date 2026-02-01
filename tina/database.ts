@@ -1,6 +1,7 @@
 import { createDatabase, createLocalDatabase } from '@tinacms/datalayer';
-import { MongodbLevel } from 'mongodb-level';
+
 import { GitHubProvider } from 'tinacms-gitprovider-github';
+import { MongodbLevel } from 'mongodb-level';
 
 // Manage this flag in your CI/CD pipeline and make sure it is set to false in production
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
@@ -30,7 +31,7 @@ export default isLocal
         token,
       }),
       databaseAdapter: new MongodbLevel<string, Record<string, any>>({
-        collectionName: `tinacms`,
+        collectionName: `tinacms-${branch.replace(/\//g, '-')}`,
         dbName: 'TinaCms',
         mongoUri: process.env.MONGODB_URI as string,
       }),
