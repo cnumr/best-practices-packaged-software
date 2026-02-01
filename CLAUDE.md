@@ -148,6 +148,36 @@ Content can be edited:
 1. **Locally**: Direct MDX file editing in `src/content/`
 2. **Via TinaCMS Admin**: Access at `/admin` when running dev server
 
+## Versioning avec Changesets
+
+Le projet utilise [Changesets](https://github.com/changesets/changesets) pour gérer les versions. Cela permet de tracker la synchronisation entre les différentes instances (RWP, RWEB, REIPRO, etc.).
+
+### Workflow
+
+1. **Après un changement significatif**, créer un changeset :
+   ```bash
+   pnpm changeset
+   ```
+   Cela crée un fichier dans `.changeset/` décrivant le changement (patch/minor/major).
+
+2. **Pour publier une nouvelle version** :
+   ```bash
+   pnpm release
+   ```
+   Cela applique les changesets, met à jour la version dans `package.json`, génère le `CHANGELOG.md` et commit.
+
+### Types de versions
+
+| Type | Quand l'utiliser |
+|------|------------------|
+| `patch` | Bug fixes, corrections mineures |
+| `minor` | Nouvelles fonctionnalités rétro-compatibles |
+| `major` | Breaking changes, modifications majeures |
+
+### Vérifier la synchronisation
+
+Comparer la version dans `package.json` entre `gen-referentiel-core` et les projets dérivés permet de savoir s'ils sont synchronisés.
+
 ## Commit Message Convention (Conventional Commits - French)
 
 Format: `<type>(<scope>): <description>`

@@ -18,9 +18,13 @@
     "prettier": "prettier . --write",
     "docker:up": "docker compose -f .local_mongodb/docker-compose.yml up -d",
     "docker:down": "docker compose -f .local_mongodb/docker-compose.yml down",
-    "clean": "rm -rf .next && rm -rf tina/__generated__"
+    "clean": "rm -rf .next && rm -rf tina/__generated__",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset version && git add -A && git commit -m 'chore: release'"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@iconify/react": "5.1.0",
     "@types/node": "^22.10.2",
     "@types/react": "18.3.11",
