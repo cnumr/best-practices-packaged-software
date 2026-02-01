@@ -1,5 +1,15 @@
 # gen-referentiel-core
 
+## 0.2.1
+
+### Patch Changes
+
+- fix(lint): charge automatiquement les variables d'environnement dans le linting MDX
+
+  Ajoute l'import de `dotenv/config` dans `.remarkrc.mjs` pour que `pnpm lint:md`
+  utilise automatiquement les variables du fichier `.env` (notamment `NEXT_PUBLIC_REF_NAME`
+  pour sélectionner le bon schéma de validation).
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkLintFrontmatterSchema from 'remark-lint-frontmatter-schema';
 import remarkValidatePersonaReferences from './plugins/remark-validate-persona-references.mjs';
