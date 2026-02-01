@@ -5,7 +5,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { client } from '../../../tina/__generated__/databaseClient';
 import { getRefConfig } from '../../../referentiel-config';
 import { notFound } from 'next/navigation';
-import { ui } from '../../../i18n/ui';
+import { code_languages } from '../../../i18n/ui';
 import { useTranslations } from '../../../i18n/utils';
 
 export async function generateStaticParams() {
@@ -13,8 +13,7 @@ export async function generateStaticParams() {
   if (!getRefConfig().featuresEnabled.lexique) {
     return [];
   }
-  const lang = Object.keys(ui);
-  return lang.map((lang) => ({ lang }));
+  return code_languages.map((lang) => ({ lang }));
 }
 
 export default async function Home({ params }) {
