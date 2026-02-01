@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://collectif.greenit.fr/">
-    <img align="center" alt="CNUMR" src="./public/logo-cnumr.png" width="160" />
+    <img align="center" alt="CNUMR" src="./public/assets/logo-cnumr.png" width="160" />
   </a>
-    <img align="center" alt="Association Green IT" src="./public/logo-asso.png" width="200" />
+    <img align="center" alt="Association Green IT" src="./public/assets/logo-asso.png" width="200" />
 </p>
 
 # gen-referentiel-core
@@ -47,12 +47,12 @@ Ce repository contient le code partagé entre plusieurs sites de référentiels.
 
 Ce repo contient du contenu fake minimal pour tester le build :
 
-| Type | Fichiers |
-|------|----------|
-| Fiches | 3 fiches exemples |
-| Personas | 2 personas de test |
-| Lexique | 3 termes |
-| Home | Page d'accueil de test |
+| Type     | Fichiers               |
+| -------- | ---------------------- |
+| Fiches   | 3 fiches exemples      |
+| Personas | 2 personas de test     |
+| Lexique  | 3 termes               |
+| Home     | Page d'accueil de test |
 
 ## Développement
 
@@ -95,12 +95,12 @@ Le `.gitattributes` protège automatiquement le contenu local (`src/content/`) l
 
 ## Sites utilisant ce repo
 
-| Site | Repository | Description |
-|------|------------|-------------|
-| RWP | best-practices-wordpress | Bonnes pratiques WordPress |
-| RWEB | best-practices | Bonnes pratiques Web |
-| REIPRO | best-practices-packaged-software | Intégration de progiciels |
-| RIA | (à venir) | Utilisation de l'IA |
+| Site   | Repository                       | Description                |
+| ------ | -------------------------------- | -------------------------- |
+| RWP    | best-practices-wordpress         | Bonnes pratiques WordPress |
+| RWEB   | best-practices                   | Bonnes pratiques Web       |
+| REIPRO | best-practices-packaged-software | Intégration de progiciels  |
+| RIA    | (à venir)                        | Utilisation de l'IA        |
 
 ## Documentation
 

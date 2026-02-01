@@ -1,5 +1,6 @@
 # Protéger le contenu spécifique au site lors des merges upstream
 src/content/** merge=ours
+public/img_fiches/** merge=ours
 
 # Protéger les fichiers TinaCMS générés (dépendent de TINA_PUBLIC_REF_NAME)
 tina/tina-lock.json merge=ours

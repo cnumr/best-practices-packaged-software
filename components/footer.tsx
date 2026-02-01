@@ -70,7 +70,7 @@ const Footer: FunctionComponent<FooterProps> = ({ lang = 'fr' }) => {
           <Image
             width="175"
             height="55"
-            src={'/logo-asso.png'}
+            src={'/assets/logo-asso.png'}
             alt={t(
               "Logo association Green IT - lien sortant vers le site l'association Green IT"
             )}
