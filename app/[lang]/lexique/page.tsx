@@ -1,11 +1,12 @@
 import { Lexique } from '../../../tina/__generated__/types';
 import Link from 'next/link';
 import { MdxComponents } from '../../../components/mdx/mdx-components';
+import { Metadata } from 'next';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { client } from '../../../tina/__generated__/databaseClient';
 import { getRefConfig } from '../../../referentiel-config';
 import { notFound } from 'next/navigation';
-import { code_languages } from '../../../i18n/ui';
+import { code_languages, ui } from '../../../i18n/ui';
 import { useTranslations } from '../../../i18n/utils';
 
 export async function generateStaticParams() {
@@ -14,6 +15,37 @@ export async function generateStaticParams() {
     return [];
   }
   return code_languages.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: keyof typeof ui };
+}): Promise<Metadata> {
+  const { lang } = params;
+  const t = useTranslations(lang);
+  const title = `${t('Lexique')} | ${t('seo.site_name')}`;
+  const description = t('Consulter le Lexique');
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${t('seo.url')}/${lang}/lexique`,
+      siteName: t('seo.site_name'),
+      images: [{ url: t('seo.fb.image.url'), alt: title }],
+      locale: lang,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [t('seo.tw.image.url')],
+    },
+  };
 }
 
 export default async function Home({ params }) {
