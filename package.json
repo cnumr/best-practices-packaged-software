@@ -1,6 +1,6 @@
 {
   "name": "gen-referentiel-core",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "doc": "cd docs && retype start",
@@ -18,14 +18,19 @@
     "prettier": "prettier . --write",
     "docker:up": "docker compose -f .local_mongodb/docker-compose.yml up -d",
     "docker:down": "docker compose -f .local_mongodb/docker-compose.yml down",
-    "clean": "rm -rf .next && rm -rf tina/__generated__"
+    "clean": "rm -rf .next && rm -rf tina/__generated__",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset version && git add -A && git commit -m 'chore: release'"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@iconify/react": "5.1.0",
     "@types/node": "^22.10.2",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.20",
+    "dotenv": "^17.2.3",
     "eslint": "^8.41.0",
     "eslint-config-next": "^14.2.35",
     "eslint-plugin-mdx": "^3.6.2",
