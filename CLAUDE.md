@@ -17,6 +17,7 @@ Appliquer systématiquement la méthode **APEX** pour chaque tâche :
 - Ne jamais coder sans avoir d'abord analysé et planifié
 - Toujours attendre la validation du plan avant d'exécuter
 - Toujours vérifier le résultat après implémentation
+- **Ne JAMAIS faire de commit sans demande explicite de l'utilisateur**
 
 **Commandes de validation (eXamine) :**
 ```bash
@@ -73,10 +74,12 @@ pnpm clean
 - **fiches/**: Best practice sheets organized by language (fr/, en/, es/)
   - Files follow naming: `RWP_<category>.<number>-<slug>.mdx`
   - Categories: 1 (Installation), 2 (Fonctionnalités), 3 (Design), 4 (Code), 5 (Médias), 6 (Mesure), 7 (Serveur), 8 (Maintenance)
-- **lexique/**: Glossary entries by language
-- **personas/**: User personas by language
+- **lexique/**: Glossary entries by language *(optionnel)*
+- **personas/**: User personas by language *(optionnel)*
 - **home/**: Homepage content by language
 - **mentionsLegales/**: Legal notices by language
+
+**Note :** Le lexique et les personas sont optionnels. Si le contenu n'existe pas ou si la feature est désactivée dans `referentiel-config.ts`, les pages affichent un message "Aucun contenu disponible" ou retournent 404.
 
 ### App Structure (`app/`)
 
