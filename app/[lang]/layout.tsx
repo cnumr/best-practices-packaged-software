@@ -26,6 +26,7 @@ export async function generateMetadata({
   const siteUrl = t('seo.url');
 
   return {
+    metadataBase: new URL(siteUrl),
     title,
     description,
     openGraph: {

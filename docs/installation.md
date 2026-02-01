@@ -30,6 +30,8 @@ order: 8
 - `NEXT_PUBLIC_REPO_URL` : URL du dépôt GitHub.
 - `TINA_PUBLIC_IS_LOCAL` : `false`
 - `NEXTAUTH_SECRET` : Clé secrète pour NextAuth (run `openssl rand -hex 16` pour générer une clé).
+- `SITE_URL` : URL complète du site en production (ex: `https://wp.greenit.fr`). **Obligatoire** pour que les images de partage social (OpenGraph/Twitter) fonctionnent correctement.
+- `PUBLIC_BASE` : (Optionnel) Chemin de base si le site est hébergé sur un sous-répertoire (ex: `/referentiel`).
 
 ### Configuration de MongoDB.com (atlas)
 
