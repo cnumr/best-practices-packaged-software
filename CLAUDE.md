@@ -131,6 +131,17 @@ The active referential is set via `NEXT_PUBLIC_REF_NAME` and `TINA_PUBLIC_REF_NA
 - `i18n/ui.ts` - UI translations
 - `src/content/constants/index.ts` - Field options for lifecycle, scope, saved_resources, etc.
 
+### MDX Content Validation (`content/`)
+
+Les schémas YAML valident le frontmatter des fichiers MDX via `pnpm lint:md`. Le schéma utilisé dépend de `NEXT_PUBLIC_REF_NAME` :
+
+| Schéma | Référentiels | Particularités |
+|--------|--------------|----------------|
+| `fiche.schema.yaml` | RWEB, REIPRO, RIA (défaut) | `environmental_impact`/`priority_implementation` = number, `scope` optionnel |
+| `fiche.schema.rwp.yaml` | RWP | `environmental_impact`/`priority_implementation` = string, `scope` requis |
+
+La sélection est faite dynamiquement dans `.remarkrc.mjs` selon la variable d'environnement.
+
 ## Content Editing
 
 Content can be edited:
