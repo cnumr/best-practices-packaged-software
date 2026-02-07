@@ -1,5 +1,18 @@
 # gen-referentiel-core
 
+## 0.2.2
+
+### Patch Changes
+
+- 4233a4c: docs: mise à jour complète de la documentation
+
+  - Ajoute guide de synchronisation upstream complet
+  - Corrige retype.yml (URL et repo)
+  - Met à jour les versions des dépendances (TinaCMS 2.10.1, Next.js 14.2.35)
+  - Ajoute section Changesets dans developpement.md
+  - Complète installation.md avec NEXT_PUBLIC_REF_NAME
+  - Met à jour configuration.md avec tous les référentiels (REIPRO, RIA)
+
 ## 0.2.1
 
 ### Patch Changes
