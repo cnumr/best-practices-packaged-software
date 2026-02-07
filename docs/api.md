@@ -39,6 +39,26 @@ Retourne la liste des langues disponibles dans le référentiel.
 
 ---
 
+### Liste des versions
+
+```http
+GET /api/versions
+```
+
+Retourne la liste des versions distinctes présentes dans les fiches publiées.
+
+**Réponse** :
+```json
+{
+  "data": ["1.0.0", "2.0.0"],
+  "meta": {
+    "total": 2
+  }
+}
+```
+
+---
+
 ### Liste des fiches
 
 ```http
@@ -78,6 +98,14 @@ Retourne la liste de toutes les fiches publiées.
 }
 ```
 
+**Erreur 400** (langue non supportée) :
+```json
+{
+  "error": "Unsupported language",
+  "message": "Language \"de\" is not supported. Available languages: fr, en, es"
+}
+```
+
 ---
 
 ### Récupérer une fiche par ID
@@ -113,6 +141,14 @@ Retourne les détails d'une fiche spécifique.
     "url": "/fr/fiches/FAKE_1.01-installation-exemple",
     "currentVersion": "1.0.0"
   }
+}
+```
+
+**Erreur 400** (langue non supportée) :
+```json
+{
+  "error": "Unsupported language",
+  "message": "Language \"de\" is not supported. Available languages: fr, en, es"
 }
 ```
 
