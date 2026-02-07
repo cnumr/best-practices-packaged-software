@@ -24,25 +24,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
-// Locales autorisées par référentiel (miroir de referentiel-config.ts)
-const LOCALES_BY_REF = {
-  RWP: ['fr'],
-  REIPRO: ['fr'],
-  RIA: ['fr'],
-  RWEB: ['fr', 'en', 'es'],
-  REF_HOME: ['fr', 'en', 'es'],
-};
-
-function getAllowedLocales() {
-  const refName = process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
-  const locales = LOCALES_BY_REF[refName];
-  if (!locales) {
-    console.warn(`⚠️  Référentiel "${refName}" inconnu, utilisation des locales par défaut (fr, en, es)`);
-    return ['fr', 'en', 'es'];
-  }
-  return locales;
-}
-
 // Fonction pour extraire le frontmatter d'un fichier MDX
 function parseFrontmatter(filePath) {
   try {
@@ -80,24 +61,16 @@ function main() {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  const languages = [];
   const fiches = [];
 
-  // Itérer uniquement sur les locales configurées pour le référentiel
-  const allowedLocales = getAllowedLocales();
-  const refName = process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
-  console.log(`🔧 Référentiel: ${refName} — Locales autorisées: ${allowedLocales.join(', ')}\n`);
+  // Parcourir tous les dossiers de langues présents sur le disque
+  const langDirs = fs.readdirSync(fichesDir).filter(item => {
+    const itemPath = path.join(fichesDir, item);
+    return fs.statSync(itemPath).isDirectory();
+  });
 
-  for (const lang of allowedLocales) {
+  for (const lang of langDirs) {
     const langDir = path.join(fichesDir, lang);
-
-    // Vérifier que le dossier existe pour cette locale
-    if (!fs.existsSync(langDir) || !fs.statSync(langDir).isDirectory()) {
-      console.warn(`⚠️  Dossier inexistant pour la locale "${lang}": ${langDir}`);
-      continue;
-    }
-
-    languages.push(lang);
     const files = fs.readdirSync(langDir).filter(file => file.endsWith('.mdx'));
 
     console.log(`📁 Traitement de ${files.length} fiches en langue: ${lang}`);
@@ -137,8 +110,12 @@ function main() {
     }
   }
 
-  // Trier les langues
-  languages.sort();
+  // Déduire langues et versions depuis les fiches publiées
+  const languagesSet = new Set();
+  for (const fiche of fiches) {
+    languagesSet.add(fiche.lang);
+  }
+  const languages = [...languagesSet].sort();
 
   // Extraire les versions distinctes depuis toutes les fiches
   const versionsSet = new Set();
