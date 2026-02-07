@@ -83,24 +83,21 @@ function main() {
   const languages = [];
   const fiches = [];
 
-  // Parcourir les dossiers de langues (filtrés par les locales du référentiel)
+  // Itérer uniquement sur les locales configurées pour le référentiel
   const allowedLocales = getAllowedLocales();
   const refName = process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
   console.log(`🔧 Référentiel: ${refName} — Locales autorisées: ${allowedLocales.join(', ')}\n`);
 
-  const langDirs = fs.readdirSync(fichesDir).filter(item => {
-    const itemPath = path.join(fichesDir, item);
-    if (!fs.statSync(itemPath).isDirectory()) return false;
-    if (!allowedLocales.includes(item)) {
-      console.log(`⏭️  Langue "${item}" ignorée (non configurée pour ${refName})`);
-      return false;
-    }
-    return true;
-  });
-
-  for (const lang of langDirs) {
-    languages.push(lang);
+  for (const lang of allowedLocales) {
     const langDir = path.join(fichesDir, lang);
+
+    // Vérifier que le dossier existe pour cette locale
+    if (!fs.existsSync(langDir) || !fs.statSync(langDir).isDirectory()) {
+      console.warn(`⚠️  Dossier inexistant pour la locale "${lang}": ${langDir}`);
+      continue;
+    }
+
+    languages.push(lang);
     const files = fs.readdirSync(langDir).filter(file => file.endsWith('.mdx'));
 
     console.log(`📁 Traitement de ${files.length} fiches en langue: ${lang}`);
@@ -143,14 +140,25 @@ function main() {
   // Trier les langues
   languages.sort();
 
+  // Extraire les versions distinctes depuis toutes les fiches
+  const versionsSet = new Set();
+  for (const fiche of fiches) {
+    for (const v of fiche.versions) {
+      versionsSet.add(v.version);
+    }
+  }
+  const versions = [...versionsSet].sort();
+
   // Construire l'objet de sortie
   const output = {
     meta: {
       generated: new Date().toISOString(),
       total: fiches.length,
       languages: languages,
+      versions: versions,
     },
     languages: languages,
+    versions: versions,
     fiches: fiches,
   };
 
@@ -160,6 +168,7 @@ function main() {
   console.log(`\n✨ Génération terminée !`);
   console.log(`📊 Résumé:`);
   console.log(`  - Langues disponibles: ${languages.join(', ')}`);
+  console.log(`  - Versions disponibles: ${versions.join(', ') || 'aucune'}`);
   console.log(`  - Total de fiches publiées: ${fiches.length}`);
   console.log(`  - Fichier généré: ${outputFile}`);
   console.log(`  - Taille: ${(fs.statSync(outputFile).size / 1024).toFixed(2)} KB\n`);

@@ -1,13 +1,19 @@
 {
   "meta": {
-    "generated": "2026-02-07T15:56:43.549Z",
+    "generated": "2026-02-07T21:43:33.932Z",
     "total": 3,
     "languages": [
       "fr"
+    ],
+    "versions": [
+      "1.0.0"
     ]
   },
   "languages": [
     "fr"
+  ],
+  "versions": [
+    "1.0.0"
   ],
   "fiches": [
     {
