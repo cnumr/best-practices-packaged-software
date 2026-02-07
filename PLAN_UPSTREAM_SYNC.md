@@ -220,31 +220,84 @@ git push origin main
 git fetch upstream
 git merge upstream/main
 
+# Si les branches ont des historiques non liés (première sync)
+# Utiliser --allow-unrelated-histories
+git merge upstream/main --allow-unrelated-histories
+
 # Si tout va bien, le contenu local est préservé grâce à .gitattributes
 # Vérifier que src/content/ n'a pas été modifié
 git diff --stat HEAD~1 -- src/content/
 
 git push origin main
 # → Vercel redéploie automatiquement
+
+# ⚠️ Si votre branche et origin/main ont divergé (après merge upstream)
+# Vous devrez forcer le push avec --force-with-lease
+git push --force-with-lease origin main
 ```
 
 ### 3.3 En cas de conflit
 
 Si un conflit survient (rare si .gitattributes est bien configuré) :
 
-```bash
-# Voir les fichiers en conflit
-git status
+#### Voir les fichiers en conflit
 
-# Pour garder votre version locale d'un fichier
+```bash
+git status
+# ou pour plus de détails
+git diff --name-only --diff-filter=U
+```
+
+#### Stratégie 1 : Résoudre fichier par fichier
+
+```bash
+# Pour garder votre version locale d'un fichier (ours)
 git checkout --ours src/content/chemin/fichier.mdx
 
-# Pour prendre la version upstream (rare)
-git checkout --theirs chemin/fichier.ts
+# Pour prendre la version upstream (theirs)
+git checkout --theirs app/chemin/fichier.ts
 
-# Finaliser
+# Marquer comme résolu
+git add src/content/chemin/fichier.mdx app/chemin/fichier.ts
+```
+
+#### Stratégie 2 : Tout accepter d'upstream (première sync)
+
+Si vous faites la première synchronisation et voulez tout prendre d'upstream :
+
+```bash
+# Accepter TOUS les fichiers en conflit depuis upstream
+git checkout --theirs .
+
+# Marquer tous les fichiers comme résolus
 git add .
+
+# Finaliser le merge
 git commit -m "merge: intègre les mises à jour du core"
+```
+
+#### Stratégie 3 : Résolution manuelle avec un éditeur
+
+Les fichiers en conflit contiennent des marqueurs :
+
+```
+<<<<<<< HEAD (votre version)
+votre code
+=======
+code upstream
+>>>>>>> upstream/main
+```
+
+Vous pouvez :
+1. Ouvrir le fichier dans VS Code (il détecte automatiquement les conflits)
+2. Choisir "Accept Current Change", "Accept Incoming Change", ou éditer manuellement
+3. Sauvegarder et `git add` le fichier
+
+#### Annuler un merge en cours
+
+```bash
+# Si vous voulez recommencer
+git merge --abort
 ```
 
 ### 3.4 Script d'aide (optionnel)
