@@ -23,6 +23,9 @@
 .env.local
 .idea
 
+# claude code
+.claude/settings.local.json
+
 # debug
 npm-debug.log*
 yarn-debug.log*
