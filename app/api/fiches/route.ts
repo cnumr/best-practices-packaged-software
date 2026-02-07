@@ -133,6 +133,19 @@ function filterFiches(
  *                     version:
  *                       type: string
  *                       example: "latest"
+ *       400:
+ *         description: Langue non supportée
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Unsupported language"
+ *                 message:
+ *                   type: string
+ *                   example: "Language \"de\" is not supported. Available languages: fr, en, es"
  *       404:
  *         description: Fichier de données non trouvé
  *       500:
@@ -149,8 +162,19 @@ export async function GET(request: NextRequest) {
     const version = searchParams.get('version') || 'latest';
 
     // Utiliser la langue par défaut du référentiel si non spécifiée
-    const defaultLang = getRefConfig().i18n.defaultLang;
-    const effectiveLang = lang || defaultLang;
+    const refConfig = getRefConfig();
+    const effectiveLang = lang || refConfig.i18n.defaultLang;
+
+    // Valider que la langue est supportée
+    if (!refConfig.i18n.locales.includes(effectiveLang)) {
+      return NextResponse.json(
+        {
+          error: 'Unsupported language',
+          message: `Language "${effectiveLang}" is not supported. Available languages: ${refConfig.i18n.locales.join(', ')}`,
+        },
+        { status: 400 }
+      );
+    }
 
     // Filtrer les fiches
     const filteredFiches = filterFiches(apiData.fiches, effectiveLang, version);

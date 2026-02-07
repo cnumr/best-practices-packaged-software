@@ -1,28 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 import { getRefConfig } from '../../../referentiel-config';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
-
-// Types
-interface ApiData {
-  meta: {
-    generated: string;
-    total: number;
-    languages: string[];
-  };
-  languages: string[];
-  fiches: unknown[];
-}
-
-// Charger les données depuis le fichier JSON
-function loadApiData(): ApiData {
-  const filePath = path.join(process.cwd(), 'public/api-data/fiches-full.json');
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(fileContent);
-}
 
 /**
  * @swagger
@@ -48,23 +28,18 @@ function loadApiData(): ApiData {
  *                 default:
  *                   type: string
  *                   example: "fr"
- *       404:
- *         description: Fichier de données non trouvé
  *       500:
  *         description: Erreur serveur
  */
 export async function GET(request: NextRequest) {
   try {
-    // Charger les données
-    const apiData = loadApiData();
-
-    // Récupérer la langue par défaut depuis la config
-    const defaultLang = getRefConfig().i18n.defaultLang;
+    // Récupérer les langues depuis la config du référentiel
+    const refConfig = getRefConfig();
 
     // Construire la réponse
     const response = {
-      data: apiData.languages,
-      default: defaultLang,
+      data: refConfig.i18n.locales,
+      default: refConfig.i18n.defaultLang,
     };
 
     return NextResponse.json(response, {
@@ -74,17 +49,6 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error('Error in /api/languages:', error);
-
-    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      return NextResponse.json(
-        {
-          error: 'API data not found',
-          message:
-            'Please run "node scripts/generate-api-data.mjs" to generate the API data',
-        },
-        { status: 404 }
-      );
-    }
 
     return NextResponse.json(
       {
