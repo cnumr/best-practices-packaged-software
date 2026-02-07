@@ -43,6 +43,13 @@ const Footer: FunctionComponent<FooterProps> = ({ lang = 'fr' }) => {
             </Link>
           </li>
           <li>
+            <Link
+              href="/swagger-ui.html"
+              title="API Documentation">
+              API
+            </Link>
+          </li>
+          <li>
             <LanguagePicker style="light" />
           </li>
         </ul>
