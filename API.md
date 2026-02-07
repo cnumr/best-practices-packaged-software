@@ -35,13 +35,34 @@ GET /api/languages
 **Réponse** :
 ```json
 {
-  "data": ["fr", "en", "es"]
+  "data": ["fr", "en", "es"],
+  "default": "fr"
 }
 ```
 
 ---
 
-### 2. Liste de toutes les fiches
+### 2. Liste des versions disponibles
+
+```http
+GET /api/versions
+```
+
+Retourne la liste des versions distinctes présentes dans les fiches publiées.
+
+**Réponse** :
+```json
+{
+  "data": ["1.0.0", "2.0.0"],
+  "meta": {
+    "total": 2
+  }
+}
+```
+
+---
+
+### 4. Liste de toutes les fiches
 
 ```http
 GET /api/fiches
@@ -79,9 +100,17 @@ GET /api/fiches?lang=fr&version=1.0.0
 }
 ```
 
+**Erreur 400** (langue non supportée) :
+```json
+{
+  "error": "Unsupported language",
+  "message": "Language \"de\" is not supported. Available languages: fr, en, es"
+}
+```
+
 ---
 
-### 3. Récupérer une fiche par son ID
+### 5. Récupérer une fiche par son ID
 
 ```http
 GET /api/fiches/{id}
@@ -113,6 +142,14 @@ GET /api/fiches/{id}?lang=fr&version=1.0.0
     "url": "/fr/fiches/FAKE_1.01-installation-exemple",
     "currentVersion": "1.0.0"
   }
+}
+```
+
+**Erreur 400** (langue non supportée) :
+```json
+{
+  "error": "Unsupported language",
+  "message": "Language \"de\" is not supported. Available languages: fr, en, es"
 }
 ```
 
