@@ -18,6 +18,7 @@ Appliquer systématiquement la méthode **APEX** pour chaque tâche :
 - Toujours attendre la validation du plan avant d'exécuter
 - Toujours vérifier le résultat après implémentation
 - **Ne JAMAIS faire de commit sans demande explicite de l'utilisateur**
+- **Quand l'utilisateur demande un commit, toujours demander s'il veut aussi créer un changeset et une PR**
 
 **Commandes de validation (eXamine) :**
 ```bash
