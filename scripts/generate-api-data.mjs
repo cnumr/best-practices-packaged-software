@@ -24,6 +24,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
+// Locales autorisées par référentiel (miroir de referentiel-config.ts)
+const LOCALES_BY_REF = {
+  RWP: ['fr'],
+  REIPRO: ['fr'],
+  RIA: ['fr'],
+  RWEB: ['fr', 'en', 'es'],
+  REF_HOME: ['fr', 'en', 'es'],
+};
+
+function getAllowedLocales() {
+  const refName = process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
+  const locales = LOCALES_BY_REF[refName];
+  if (!locales) {
+    console.warn(`⚠️  Référentiel "${refName}" inconnu, utilisation des locales par défaut (fr, en, es)`);
+    return ['fr', 'en', 'es'];
+  }
+  return locales;
+}
+
 // Fonction pour extraire le frontmatter d'un fichier MDX
 function parseFrontmatter(filePath) {
   try {
@@ -64,10 +83,19 @@ function main() {
   const languages = [];
   const fiches = [];
 
-  // Parcourir les dossiers de langues
+  // Parcourir les dossiers de langues (filtrés par les locales du référentiel)
+  const allowedLocales = getAllowedLocales();
+  const refName = process.env.NEXT_PUBLIC_REF_NAME || 'RWEB';
+  console.log(`🔧 Référentiel: ${refName} — Locales autorisées: ${allowedLocales.join(', ')}\n`);
+
   const langDirs = fs.readdirSync(fichesDir).filter(item => {
     const itemPath = path.join(fichesDir, item);
-    return fs.statSync(itemPath).isDirectory();
+    if (!fs.statSync(itemPath).isDirectory()) return false;
+    if (!allowedLocales.includes(item)) {
+      console.log(`⏭️  Langue "${item}" ignorée (non configurée pour ${refName})`);
+      return false;
+    }
+    return true;
   });
 
   for (const lang of langDirs) {
