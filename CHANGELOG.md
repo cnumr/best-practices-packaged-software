@@ -1,5 +1,15 @@
 # gen-referentiel-core
 
+## 0.4.0
+
+### Minor Changes
+
+- 83f28ec: Ajoute l'API `/api/versions` pour lister les versions disponibles dans les fiches. Refactorise le script de génération pour itérer sur les locales configurées au lieu de scanner le filesystem, et inclut les versions distinctes dans le JSON généré.
+
+### Patch Changes
+
+- 298ebc1: Centralise la documentation dans `docs/` et supprime les fichiers en doublon à la racine (API.md, PLAN_UPSTREAM_SYNC.md, PLAN_DYNAMIC_SCHEMA.md).
+
 ## 0.3.0
 
 ### Minor Changes
