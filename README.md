@@ -82,7 +82,7 @@ pnpm lint
 
 ### Synchroniser un site de production
 
-Voir [PLAN_UPSTREAM_SYNC.md](./PLAN_UPSTREAM_SYNC.md) pour le workflow complet.
+Voir la [documentation de synchronisation](./docs/synchronisation.md) pour le workflow complet.
 
 ```bash
 # Dans le repo du site (ex: rwp)
@@ -104,8 +104,7 @@ Le `.gitattributes` protège automatiquement le contenu local (`src/content/`) l
 
 ## Documentation
 
-- [PLAN_UPSTREAM_SYNC.md](./PLAN_UPSTREAM_SYNC.md) - Architecture et workflow de synchronisation
-- [PLAN_DYNAMIC_SCHEMA.md](./PLAN_DYNAMIC_SCHEMA.md) - Amélioration future des schémas de validation
+- [docs/](./docs/) - Documentation complète (Retype)
 - [CLAUDE.md](./CLAUDE.md) - Instructions pour Claude Code
 - [CONTRIBUTING.md](./CONTRIBUTING.md) - Guide de contribution
 

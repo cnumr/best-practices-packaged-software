@@ -366,7 +366,6 @@ Ce fichier est partagé. Les différences entre sites sont gérées automatiquem
 
 ## Pour aller plus loin
 
-- [Plan complet d'architecture upstream](../PLAN_UPSTREAM_SYNC.md)
 - [Guide de développement](./developpement.md)
 - [Configuration du projet](./configuration.md)
 
