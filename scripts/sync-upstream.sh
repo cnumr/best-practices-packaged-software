@@ -23,14 +23,28 @@ fi
 echo -e "${YELLOW}Fetching upstream...${NC}"
 git fetch upstream
 
-# Vérifier s'il y a des changements à intégrer
-COMMITS=$(git log --oneline HEAD..upstream/main 2>/dev/null || echo "")
-if [ -z "$COMMITS" ]; then
-    echo -e "${GREEN}Déjà à jour avec upstream.${NC}"
-    exit 0
+# Détecter si c'est la première sync (historiques non liés)
+MERGE_BASE=$(git merge-base HEAD upstream/main 2>/dev/null || echo "")
+if [ -z "$MERGE_BASE" ]; then
+    echo -e "${YELLOW}Première synchronisation détectée (historiques non liés).${NC}"
+    FIRST_SYNC=true
+else
+    FIRST_SYNC=false
 fi
 
-echo -e "${YELLOW}Changements à intégrer :${NC}"
+# Vérifier s'il y a des changements à intégrer
+if [ "$FIRST_SYNC" = true ]; then
+    COMMITS=$(git log --oneline upstream/main | head -10)
+    echo -e "${YELLOW}Premiers commits upstream à intégrer :${NC}"
+else
+    COMMITS=$(git log --oneline HEAD..upstream/main 2>/dev/null || echo "")
+    if [ -z "$COMMITS" ]; then
+        echo -e "${GREEN}Déjà à jour avec upstream.${NC}"
+        exit 0
+    fi
+    echo -e "${YELLOW}Changements à intégrer :${NC}"
+fi
+
 echo "$COMMITS"
 echo ""
 
@@ -44,7 +58,11 @@ fi
 
 # Merge sans commit
 echo -e "${YELLOW}Merge upstream/main...${NC}"
-git merge upstream/main --no-commit --no-edit || true
+if [ "$FIRST_SYNC" = true ]; then
+    git merge upstream/main --no-commit --no-edit --allow-unrelated-histories || true
+else
+    git merge upstream/main --no-commit --no-edit || true
+fi
 
 # Protéger le contenu local
 echo -e "${YELLOW}Protection du contenu local...${NC}"

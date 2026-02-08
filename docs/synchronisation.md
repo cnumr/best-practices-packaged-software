@@ -164,21 +164,22 @@ git push --force-with-lease origin main
 
 ### Script de synchronisation
 
-Le script `scripts/sync-upstream.sh` automatise tout le processus :
+Le script `scripts/sync-upstream.sh` automatise tout le processus, que ce soit pour la **première synchronisation** ou les **suivantes** :
 
 ```bash
 ./scripts/sync-upstream.sh
 ```
 
 **Ce script :**
-1. Fetch upstream
-2. Affiche les commits à intégrer et demande confirmation
-3. Merge avec protection du contenu local (`src/content/`, `public/img_fiches/`)
-4. Régénère `tina-lock.json` avec `pnpm tinacms build`
-5. Commit et push
+1. Vérifie que le remote `upstream` existe
+2. Détecte automatiquement si c'est la première sync (historiques non liés)
+3. Affiche les commits à intégrer et demande confirmation
+4. Merge avec protection du contenu local (`src/content/`, `public/img_fiches/`)
+5. Régénère `tina-lock.json` avec `pnpm tinacms build`
+6. Commit et push
 
 !!!success Recommandé
-Utilisez ce script plutôt que les commandes manuelles pour éviter les erreurs.
+Utilisez ce script plutôt que les commandes manuelles pour éviter les erreurs. Il gère automatiquement le cas `--allow-unrelated-histories` lors de la première sync.
 !!!
 
 ---
