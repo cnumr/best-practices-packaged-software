@@ -167,6 +167,8 @@ git push --force-with-lease origin main
 Le script `scripts/sync-upstream.sh` automatise tout le processus, que ce soit pour la **première synchronisation** ou les **suivantes** :
 
 ```bash
+pnpm sync-upstream
+# ou directement
 ./scripts/sync-upstream.sh
 ```
 
