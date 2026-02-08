@@ -401,8 +401,7 @@ Ce fichier est partagé. Les différences entre sites sont gérées automatiquem
 Après chaque `git merge upstream/main`, il faut régénérer le fichier `tina/tina-lock.json` en lançant :
 
 ```bash
-pnpm dev
-# Ctrl+C pour arrêter une fois le serveur démarré
+pnpm tinacms build
 ```
 
 Ce fichier contient le schéma TinaCMS spécifique à votre configuration (`TINA_PUBLIC_REF_NAME`). Sans régénération, le build peut échouer.
