@@ -1,27 +1,113 @@
-# Référentiels de bonnes pratiques pour l'intégration de progiciels (REIPRO)
+<p align="center">
+  <a href="https://collectif.greenit.fr/">
+    <img align="center" alt="CNUMR" src="./public/assets/logo-cnumr.png" width="160" />
+  </a>
+    <img align="center" alt="Association Green IT" src="./public/assets/logo-asso.png" width="200" />
+</p>
 
-Ce projet regroupe des bonnes pratiques pour l'intégration de progiciels.
+# gen-referentiel-core
 
-Ce document est issu du travail des consultants de Cosmo Consult et de Zenika, avec le support du CNumR.
+**Repo source pour les référentiels de bonnes pratiques Green IT**
 
-## Comment contribuer ?
+Ce repository contient le code partagé entre plusieurs sites de référentiels. Il sert de source (`upstream`) pour synchroniser les évolutions de code vers les repos de production.
 
-N'hésitez pas à lire [le guide des contributeurs](CONTRIBUTING.md).
+## Architecture Multi-Sites
 
-## La liste des Bonnes Pratiques
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    gen-referentiel-core                         │
+│                    (ce repo - source)                           │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐              │
+│  │ app/        │  │ components/ │  │ tina/       │   CODE       │
+│  └─────────────┘  └─────────────┘  └─────────────┘              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │ src/content/  (contenu FAKE pour tests)         │   CONTENU  │
+│  └─────────────────────────────────────────────────┘            │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+            ┌─────────────────┼─────────────────┐
+            │ upstream        │ upstream        │ upstream
+            ▼                 ▼                 ▼
+     ┌──────────┐      ┌──────────┐      ┌──────────┐
+     │   RWP    │      │   RWEB   │      │  REIPRO  │
+     │WordPress │      │   Web    │      │Progiciels│
+     │          │      │          │      │          │
+     │ CONTENU: │      │ CONTENU: │      │ CONTENU: │
+     │ réel     │      │ réel     │      │ réel     │
+     └──────────┘      └──────────┘      └──────────┘
+```
 
-* [Bien quantifier le besoin ](practices/01_bien-quantifier-le-besoin.md)
-* [Retenir uniquement les fonctionnalités essentielles](practices/02_ne-retenir-que-les-fonctionnalites-essentielles.md)
-* [Minimiser le nombre de développements spécifiques](practices/03_minimiser-le-nombre-de-developpements-specifiques.md)
-* [Supprimer les développements spécifiques couverts par les nouveaux standards](practices/04_supprimer-les-developpements-specifiques-inclus-dans-les-nouveaux-standards.md)
-* [Supprimer les développements spécifiques non utilisés](practices/05_supprimer-les-developpements-specifiques-non-utilises.md)
-* [Reporter les tâches qui peuvent l'être pour lisser la charge](practices/06_lisser-la-charge.md)
-* [Minimiser les ressources nécessaires au projet](practices/07_minimiser-les-ressources-necessaires-au-projet.md)
-* [Supprimer les containers qui ne sont plus utiles](practices/08_supprimer-les-conteneurs-qui-ne-sont-plus-utiles.md)
-* [Désactiver l'auto-start et activer l'auto-stop](practices/09_desactiver-l_autostart-et-activer-l_auto-stop.md)
-* [Limiter la fréquence de lancement des builds](practices/10_limiter-la-frequence-de-lancement-des-builds.md)
-* [Répartir les builds dans le temps](practices/11_repartir-les-builds-dans-le-temps.md)
-* [Limiter le nombre de conteneurs utilisés pendant le développement](practices/12_limiter-le-nombre-de-conteneurs-utilises-pendant-le-developpement.md)
-* [Vérifier régulièrement la consommation des conteneurs déployés](practices/13_verifier-regulierement-la-consommation-des-conteneurs-deployes.md)
-* [Monitorer les ressources](practices/14_monitorer-des-ressources.md)
-* [Proposer le module durabilité aux clients](practices/15_proposer-le-module-durabilite-aux-clients.md)
+### Principe
+
+- **Code partagé** : Toutes les évolutions de code sont faites dans ce repo
+- **Contenu spécifique** : Chaque site a son propre contenu dans `src/content/`
+- **Synchronisation** : Les sites récupèrent les mises à jour via `git merge upstream/main`
+
+## Contenu de test
+
+Ce repo contient du contenu fake minimal pour tester le build :
+
+| Type     | Fichiers               |
+| -------- | ---------------------- |
+| Fiches   | 3 fiches exemples      |
+| Personas | 2 personas de test     |
+| Lexique  | 3 termes               |
+| Home     | Page d'accueil de test |
+
+## Développement
+
+```bash
+# Installation
+pnpm install
+
+# Développement local
+pnpm dev
+
+# Build local (sans MongoDB)
+pnpm build-local
+
+# Vérifications
+pnpm check-types
+pnpm lint
+```
+
+## Pour les mainteneurs
+
+### Faire une évolution de code
+
+1. Créer une branche depuis `main`
+2. Faire les modifications
+3. Tester avec `pnpm build-local`
+4. Créer une PR et merger dans `main`
+
+### Synchroniser un site de production
+
+Voir la [documentation de synchronisation](./docs/synchronisation.md) pour le workflow complet.
+
+```bash
+# Dans le repo du site (ex: rwp)
+git fetch upstream
+git merge upstream/main
+git push origin main
+```
+
+Le `.gitattributes` protège automatiquement le contenu local (`src/content/`) lors du merge.
+
+## Sites utilisant ce repo
+
+| Site   | Repository                       | Description                |
+| ------ | -------------------------------- | -------------------------- |
+| RWP    | best-practices-wordpress         | Bonnes pratiques WordPress |
+| RWEB   | best-practices                   | Bonnes pratiques Web       |
+| REIPRO | best-practices-packaged-software | Intégration de progiciels  |
+| RIA    | (à venir)                        | Utilisation de l'IA        |
+
+## Documentation
+
+- [docs/](./docs/) - Documentation complète (Retype)
+- [CLAUDE.md](./CLAUDE.md) - Instructions pour Claude Code
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - Guide de contribution
+
+## Licence
+
+Les sources et contenus de ce projet sont [protégés](LICENCE.md)
