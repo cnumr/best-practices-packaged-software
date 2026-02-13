@@ -1,5 +1,8 @@
 # Contribuer au référentiel de bonnes pratiques
 
+> [!IMPORTANT]
+> Cette documentation est ancienne et ne correspond plus à la réalité. Il faut utiliser maintenant la plateforme de contribution [URL à définir].
+
 Tout personne qui le souhaite peut se proposer pour contribuer au référentiel.
 
 Les règles du présent document devront être respectées.
@@ -21,13 +24,16 @@ Les contributions ont pour but :
 - Tout le monde a sa place, chacun peut apporter son expérience
 - La convivialité, le partage, la courtoisie et la bienveillance sont des règles d'or dans les échanges
 - Chaque bonne pratique doit être le résultat d'un retour terrain ou d'une approche scientifique
-- Ces bonnes pratiques sont aussi un aide-mémoire donc même une bonne pratique simple, de bon sens peut avoir sa place
+- Ces bonnes pratiques sont aussi un aide mémoire donc même une bonne pratique simple, de bon sens peut avoir sa place
 
 ## Equipe Projet
 
 L'équipe projet est constituée de:
 
+- [Thomas Broyer](https://github.com/tbroyer)
 - [Raphaël Lemaire](https://github.com/rlemaire)
+- [Romuald Priol](https://github.com/DocRoms)
+- [Thomas Lemaire](https://github.com/ACTLEM)
 
 Cette équipe s'assure que les règles instaurées pour la contribution soient respectées.
 
@@ -41,7 +47,7 @@ Un membre de l'équipe projet peut soumettre une proposition aux contributeurs m
 
 ## Proposition
 
-Chaque proposition d'ajout, de modification majeure ou de suppression de bonnes pratiques doit passer par une discussion.
+Chaque proposition d'ajout, de modification majeure ou de suppression de bonnes pratiques doit passer par [une discussion](https://github.com/cnumr/best-practices/discussions/categories/bonnes-pratiques).
 
 Le titre de la discussion doit être explicite et doit spécifier s'il s'agit d'un ajout, d'une modification majeure ou d'une suppression.
 
