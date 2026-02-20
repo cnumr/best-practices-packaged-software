@@ -180,7 +180,7 @@ export default (req, res) => {
 > - https://www.mongodb.com/docs/atlas/reference/partner-integrations/vercel/
 > - https://vercel.com/integrations/mongodbatlas
 
-> A local MongoDB is available in the .local_mogodb folder.
+> A local MongoDB is available in the .local_mongodb folder.
 > You can use the docker-compose.yml file to start the MongoDB container.
 > You can use the docker:up command to start the MongoDB container.
 > You can use the docker:down command to stop the MongoDB container.
@@ -225,5 +225,3 @@ export default isLocal
 > You can connect to the TinaCms admin interface by going to the following URL:
 > `http://localhost:3000/admin/index.html`
 > The default username and password can be found in [content/users/index.json](content/users/index.json). After your first login, be sure to update your password.
-
-test

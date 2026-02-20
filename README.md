@@ -1,3 +1,10 @@
+<p align="center">
+  <a href="https://collectif.greenit.fr/">
+    <img align="center" alt="CNUMR" src="./public/assets/logo-cnumr.png" width="160" />
+  </a>
+    <img align="center" alt="Association Green IT" src="./public/assets/logo-asso.png" width="200" />
+</p>
+
 # Référentiel de bonnes pratiques pour l'intégration de progiciels (REIPRO)
 
 Ce projet regroupe des bonnes pratiques pour l'intégration de progiciels.
