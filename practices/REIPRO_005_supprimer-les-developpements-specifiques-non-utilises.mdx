@@ -1,0 +1,49 @@
+---
+refID: '005'
+title: Supprimer les développements spécifiques non utilisés
+createdAt: 2025-10-01T10:00:00.000Z
+updatedAt: 2025-10-01T10:00:00.000Z
+language: fr
+published: true
+refType: REIPRO
+versions:
+  - version: 5.0.0
+    idRef: '005'
+people: NA
+responsible:
+  - responsible: src/content/personas/fr/architecte-logicieldeveloppeur.mdx
+  - responsible: src/content/personas/fr/poamoa.mdx
+lifecycle: 6-support
+rgesn: 2.7
+environmental_impact: 2
+priority_implementation: 3
+moe: 3
+tiers: user-device
+saved_resources:
+  - cpu
+  - ram
+  - storage
+  - network
+  - requests
+validations:
+  - rule: fonctionnalités réclamant un développement spécifique qui ne sont plus utilisées…
+    maxValue: '0'
+---
+
+
+## Description
+
+Il arrive que des fonctionnalités ne soient plus utilisées parce que le besoin des utilisateurs a changé. Dans le but
+de simplifier l’application et de l’alléger, ces développements spécifiques doivent être supprimés. Cela permet de
+réduire l’empreinte technique (RAM, CPU, etc.) côté client comme côté serveur. On contribue ainsi à réduire les
+impacts environnementaux inutiles.
+
+L'identification de ces développements peut se faire par télémétrie, mais aussi et surtout par la connaissance de
+l’équipe sur le produit déployé et le client.
+
+## Exemples avec Business Central
+
+* Identifier dans quelle mesure les traitements de report avec mise à jour des coûts sont lancés
+* Identifier la fréquence d’utilisation des pages statistiques (avec les prix de ventes marges etc.)
+* Vérifier l'utilisation des Factbox sur les pages
+* Idem pour Pack & ship qui donne des statistiques de performance
