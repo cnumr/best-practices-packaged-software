@@ -1,5 +1,21 @@
 # gen-referentiel-core
 
+## 0.6.3
+
+### Patch Changes
+
+- 5fe06ef: feat(footer): conditionne le lien API via le flag linkToAPI dans referentiel-config
+
+  Le lien vers la documentation API dans le footer est désormais conditionné par le flag `featuresEnabled.linkToAPI` dans `referentiel-config.ts`, permettant de l'activer ou désactiver par référentiel.
+
+- 18aaa18: fix(config): désactive le lien API pour REF_HOME
+
+  Le portail REF_HOME n'a pas de documentation API propre, le flag `linkToAPI` est donc positionné à `false` pour ce référentiel.
+
+- 82bec71: fix(tina): corrige le type de maxValue dans les validations de fiche
+
+  TinaCMS interprétait les valeurs numériques du champ `maxValue` comme `number` au lieu de `string`. Ajout de `ui.parse` et `ui.format` pour forcer la coercition en string.
+
 ## 0.6.2
 
 ### Patch Changes
