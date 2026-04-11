@@ -199,7 +199,7 @@ export const getRefConfig = (specificRef?: string): RefConfig => {
       config.featuresEnabled.lexique = false;
       config.featuresEnabled.fiches = false;
       config.featuresEnabled.linkToPersonas = false;
-      config.featuresEnabled.linkToAPI = true;
+      config.featuresEnabled.linkToAPI = false;
       config.featuresEnabled.priority_implementation = MESURE_ON_5;
       config.featuresEnabled.environmental_impact = MESURE_ON_5;
       config.featuresEnabled.moe = true;
