@@ -1,5 +1,11 @@
 # gen-referentiel-core
 
+## 0.6.4
+
+### Patch Changes
+
+- Les scripts de génération API vérifient maintenant la feature flag `api` du référentiel actif. Pour REF_HOME (et tout référentiel avec `api: false`), la génération est ignorée silencieusement sans erreur.
+
 ## 0.6.3
 
 ### Patch Changes
