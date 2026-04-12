@@ -1,6 +1,6 @@
 {
   "name": "gen-referentiel-core",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": true,
   "scripts": {
     "doc": "cd docs && retype start",
