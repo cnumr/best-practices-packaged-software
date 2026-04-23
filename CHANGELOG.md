@@ -1,5 +1,11 @@
 # gen-referentiel-core
 
+## 0.7.0
+
+### Minor Changes
+
+- Add core-version to footer
+
 ## 0.6.5
 
 ### Patch Changes
