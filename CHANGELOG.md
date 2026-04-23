@@ -1,5 +1,11 @@
 # gen-referentiel-core
 
+## 0.6.5
+
+### Patch Changes
+
+- nsures NEXT_PUBLIC_REF_NAME is set (defaults to REF_HOME) so the generate-api scripts (generate-api-data.mjs and generate-openapi-spec.mjs) see the correct ref and don't fall back to RWEB, which has no `src/content/fiches/` to scan and would fail
+
 ## 0.6.4
 
 ### Patch Changes
