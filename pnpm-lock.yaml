@@ -8,7 +8,6 @@ overrides:
   nanoid: ^3.3.8
   react-dnd: 14.0.5
   react-dnd-html5-backend: 14.1.0
-  '@apidevtools/json-schema-ref-parser': '>=11.2.0'
 
 importers:
 
@@ -40,7 +39,7 @@ importers:
         version: 4.24.13(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-swagger-doc:
         specifier: ^0.4.1
-        version: 0.4.1(@types/json-schema@7.0.15)(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(openapi-types@12.1.3)
+        version: 0.4.1(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(openapi-types@12.1.3)
       node-fetch:
         specifier: 3.3.2
         version: 3.3.2
@@ -55,7 +54,7 @@ importers:
         version: 15.6.6(react@18.3.1)
       swagger-jsdoc:
         specifier: ^6.2.8
-        version: 6.2.8(@types/json-schema@7.0.15)(openapi-types@12.1.3)
+        version: 6.2.8(openapi-types@12.1.3)
       swagger-ui-react:
         specifier: ^5.26.0
         version: 5.31.0(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -137,7 +136,7 @@ importers:
         version: 5.0.0
       remark-lint-frontmatter-schema:
         specifier: ^3.15.4
-        version: 3.15.4(@types/json-schema@7.0.15)
+        version: 3.15.4
       tailwindcss:
         specifier: 3.4.17
         version: 3.4.17
@@ -151,11 +150,12 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@apidevtools/json-schema-ref-parser@15.3.5':
-    resolution: {integrity: sha512-orNOYXw3hYXxxisXMldjzjBzqqTLBPbwOtHg7ovBPvfBHDue1qM9YJENZ3W2BQuS+7z4ThogMbEzEsov57Itkg==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@types/json-schema': ^7.0.15
+  '@apidevtools/json-schema-ref-parser@11.1.0':
+    resolution: {integrity: sha512-g/VW9ZQEFJAOwAyUb8JFf7MLiLy2uEB4rU270rGzDwICxnxMlPy0O11KVePSgS36K1NI29gSlK84n5INGhd4Ag==}
+    engines: {node: '>= 16'}
+
+  '@apidevtools/json-schema-ref-parser@9.1.2':
+    resolution: {integrity: sha512-r1w81DpR+KyRWd3f+rk6TNqMgedmAxZP5v5KWlXQWlgMUUtyEJch0DKEci1SorPMiSeM8XPl7MZ3miJ60JIpQg==}
 
   '@apidevtools/openapi-schemas@2.1.0':
     resolution: {integrity: sha512-Zc1AlqrJlX3SlpupFGpiLi2EbteyP7fXmUOGup6/DnkRgjP9bgMM/ag+n91rsv0U1Gpz0H3VILA/o3bW7Ua6BQ==}
@@ -2045,6 +2045,12 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/lodash.clonedeep@4.5.9':
+    resolution: {integrity: sha512-19429mWC+FyaAhOLzsS8kZUsI+/GmBAQ0HFiCPsKGU+7pBXOQWhyrY6xNNDwUSX8SMZMJvuFVMF9O5dQOlQK9Q==}
+
+  '@types/lodash@4.17.24':
+    resolution: {integrity: sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -4580,6 +4586,9 @@ packages:
 
   lodash-es@4.17.23:
     resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
+
+  lodash.clonedeep@4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -7250,26 +7259,34 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@apidevtools/json-schema-ref-parser@15.3.5(@types/json-schema@7.0.15)':
+  '@apidevtools/json-schema-ref-parser@11.1.0':
     dependencies:
+      '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
+      '@types/lodash.clonedeep': 4.5.9
+      js-yaml: 4.1.1
+      lodash.clonedeep: 4.5.0
+
+  '@apidevtools/json-schema-ref-parser@9.1.2':
+    dependencies:
+      '@jsdevtools/ono': 7.1.3
+      '@types/json-schema': 7.0.15
+      call-me-maybe: 1.0.2
       js-yaml: 4.1.1
 
   '@apidevtools/openapi-schemas@2.1.0': {}
 
   '@apidevtools/swagger-methods@3.0.2': {}
 
-  '@apidevtools/swagger-parser@10.0.3(@types/json-schema@7.0.15)(openapi-types@12.1.3)':
+  '@apidevtools/swagger-parser@10.0.3(openapi-types@12.1.3)':
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 15.3.5(@types/json-schema@7.0.15)
+      '@apidevtools/json-schema-ref-parser': 9.1.2
       '@apidevtools/openapi-schemas': 2.1.0
       '@apidevtools/swagger-methods': 3.0.2
       '@jsdevtools/ono': 7.1.3
       call-me-maybe: 1.0.2
       openapi-types: 12.1.3
       z-schema: 5.0.5
-    transitivePeerDependencies:
-      - '@types/json-schema'
 
   '@ardatan/relay-compiler@12.0.3(graphql@15.8.0)':
     dependencies:
@@ -9767,6 +9784,12 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/lodash.clonedeep@4.5.9':
+    dependencies:
+      '@types/lodash': 4.17.24
+
+  '@types/lodash@4.17.24': {}
 
   '@types/mdast@3.0.15':
     dependencies:
@@ -12642,6 +12665,8 @@ snapshots:
 
   lodash-es@4.17.23: {}
 
+  lodash.clonedeep@4.5.0: {}
+
   lodash.debounce@4.0.8: {}
 
   lodash.get@4.4.2: {}
@@ -13673,15 +13698,14 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       uuid: 8.3.2
 
-  next-swagger-doc@0.4.1(@types/json-schema@7.0.15)(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(openapi-types@12.1.3):
+  next-swagger-doc@0.4.1(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(openapi-types@12.1.3):
     dependencies:
       '@types/swagger-jsdoc': 6.0.4
       cleye: 1.3.2
       isarray: 2.0.5
       next: 14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      swagger-jsdoc: 6.2.8(@types/json-schema@7.0.15)(openapi-types@12.1.3)
+      swagger-jsdoc: 6.2.8(openapi-types@12.1.3)
     transitivePeerDependencies:
-      - '@types/json-schema'
       - openapi-types
 
   next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
@@ -14599,17 +14623,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-lint-frontmatter-schema@3.15.4(@types/json-schema@7.0.15):
+  remark-lint-frontmatter-schema@3.15.4:
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 15.3.5(@types/json-schema@7.0.15)
+      '@apidevtools/json-schema-ref-parser': 11.1.0
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
       find-up: 6.3.0
       minimatch: 9.0.3
       unified-lint-rule: 2.1.2
       yaml: 2.3.3
-    transitivePeerDependencies:
-      - '@types/json-schema'
 
   remark-mdx@2.3.0:
     dependencies:
@@ -15236,23 +15258,21 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  swagger-jsdoc@6.2.8(@types/json-schema@7.0.15)(openapi-types@12.1.3):
+  swagger-jsdoc@6.2.8(openapi-types@12.1.3):
     dependencies:
       commander: 6.2.0
       doctrine: 3.0.0
       glob: 7.1.6
       lodash.mergewith: 4.6.2
-      swagger-parser: 10.0.3(@types/json-schema@7.0.15)(openapi-types@12.1.3)
+      swagger-parser: 10.0.3(openapi-types@12.1.3)
       yaml: 2.0.0-1
     transitivePeerDependencies:
-      - '@types/json-schema'
       - openapi-types
 
-  swagger-parser@10.0.3(@types/json-schema@7.0.15)(openapi-types@12.1.3):
+  swagger-parser@10.0.3(openapi-types@12.1.3):
     dependencies:
-      '@apidevtools/swagger-parser': 10.0.3(@types/json-schema@7.0.15)(openapi-types@12.1.3)
+      '@apidevtools/swagger-parser': 10.0.3(openapi-types@12.1.3)
     transitivePeerDependencies:
-      - '@types/json-schema'
       - openapi-types
 
   swagger-ui-react@5.31.0(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
