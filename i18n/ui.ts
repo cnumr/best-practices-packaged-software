@@ -89,12 +89,18 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Falta definición, verifique el formato del enlace o si la entrada existe en el Glosario.',
-    
+
     // src/components/mdx/LexiqueTooltip.tsx
-    'lexique.aria-label': 'Definición de {term}. Presione Entrar o Espacio para mostrar.',
+    'lexique.aria-label':
+      'Definición de {term}. Presione Entrar o Espacio para mostrar.',
     'lexique.aria-label-tooltip': 'Definición de {term}',
     'lexique.loading': 'Cargando...',
     'lexique.not-found': 'Término "{term}" no encontrado en el glosario',
+
+    // app/[lang]/not-found.tsx
+    'not-found.title': 'Página no encontrada',
+    'not-found.description':
+      'El contenido de esta página no está disponible en este idioma.',
 
     // src/components/CardView.astro
     Fort: 'Fuerte',
@@ -182,7 +188,15 @@ export const ui = {
     'e-waste': 'Residuos electrónicos',
     electricity: 'El consumo de energía',
     ghg: 'Emisiones de gases de efecto invernadero',
-    tdb: 'A definir',
+    // MoE
+    moe: 'implementación',
+    'priority-level': 'Nivel de prioridad',
+    // Tiers
+    tiers: 'Terceros afectados',
+    'user-device': 'Usuario/Terminal',
+    // "network": "Réseau",
+    datacenter: 'Centro de datos',
+    tdb: 'Por definir',
     'Previous REF ID': 'REF ID anterior',
     'No previous Version': 'Sin versión anterior',
   },
@@ -263,12 +277,18 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Missing definition, check the formatting of the link or if the entry exists in the Glossary.',
-    
+
     // src/components/mdx/LexiqueTooltip.tsx
-    'lexique.aria-label': 'Definition of {term}. Press Enter or Space to display.',
+    'lexique.aria-label':
+      'Definition of {term}. Press Enter or Space to display.',
     'lexique.aria-label-tooltip': 'Definition of {term}',
     'lexique.loading': 'Loading...',
     'lexique.not-found': 'Term "{term}" not found in the glossary',
+
+    // app/[lang]/not-found.tsx
+    'not-found.title': 'Page not found',
+    'not-found.description':
+      'The content of this page is not available in this language.',
 
     // src/components/CardView.astro
     Fort: 'Strong',
@@ -299,6 +319,7 @@ export const ui = {
 
     // src/components/FichesMetasDisplay.astro
     'Sommaire :': 'Summary :',
+    responsible: 'Responsible(s)',
 
     // src/components/LanguagePicker.astro
     'Language picker': 'Language selector',
@@ -355,6 +376,14 @@ export const ui = {
     'e-waste': 'Electronic waste',
     electricity: 'Power consumption',
     ghg: 'Greenhouse gas emissions',
+    // MoE
+    moe: 'implementation',
+    'priority-level': 'Priority level',
+    // Tiers
+    tiers: 'Third party impacted',
+    'user-device': 'User/Terminal',
+    // "network": "Réseau",
+    datacenter: 'Datacenter',
     tdb: 'To define',
     'Previous REF ID': 'Previous REF ID',
     'No previous Version': 'No previous Version',
@@ -438,12 +467,18 @@ export const ui = {
     // src/components/mdx/MDXLexiqueTooltip.astro
     'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.':
       'Définition manquante, vérifier le formatage du lien ou si la fiche existe dans le Lexique.',
-    
+
     // src/components/mdx/LexiqueTooltip.tsx
-    'lexique.aria-label': 'Définition de {term}. Appuyez sur Entrée ou Espace pour afficher.',
+    'lexique.aria-label':
+      'Définition de {term}. Appuyez sur Entrée ou Espace pour afficher.',
     'lexique.aria-label-tooltip': 'Définition de {term}',
     'lexique.loading': 'Chargement...',
     'lexique.not-found': 'Terme "{term}" non trouvé dans le lexique',
+
+    // app/[lang]/not-found.tsx
+    'not-found.title': 'Page non trouvée',
+    'not-found.description':
+      "Le contenu de cette page n'est pas disponible dans cette langue.",
 
     // src/components/CardView.astro
     Fort: 'Fort',
@@ -535,12 +570,12 @@ export const ui = {
     // MoE
     moe: 'Mise en oeuvre',
     'priority-level': 'Degré de priorité',
-    tdb: 'À définir',
     // Tiers
     tiers: 'Tier impacté',
     'user-device': 'Utilisateur/Terminal',
     // "network": "Réseau",
     datacenter: 'Datacenter',
+    tdb: 'À définir',
     'Previous REF ID': 'REF ID précédente',
     'No previous Version': 'Pas de version précédente',
     rgesn: 'RGESN',
