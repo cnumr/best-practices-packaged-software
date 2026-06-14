@@ -191,7 +191,7 @@ export const FicheCard: FunctionComponent<FicheCardProps> = ({
               role="img"
               className="text-base">
               {t("Priorité d'implémentation") +
-                ' ' +
+                ': ' +
                 fiche.priority_implementation}
             </span>
           )}
