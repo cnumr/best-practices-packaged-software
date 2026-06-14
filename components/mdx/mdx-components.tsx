@@ -1,3 +1,4 @@
+import DOMPurify from 'isomorphic-dompurify';
 import Image, { ImageProps, getImageProps } from 'next/image';
 
 // https://tina.io/docs/editing/markdown/
@@ -15,6 +16,66 @@ import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { ui } from '../../i18n/ui';
 
 type Lang = keyof typeof ui;
+
+const HTML_SANITIZE_CONFIG = {
+  ALLOWED_TAGS: [
+    'b',
+    'strong',
+    'i',
+    'em',
+    'u',
+    's',
+    'del',
+    'ins',
+    'sup',
+    'sub',
+    'small',
+    'mark',
+    'abbr',
+    'cite',
+    'code',
+    'kbd',
+    'samp',
+    'var',
+    'br',
+    'span',
+    'a',
+    'p',
+    'ul',
+    'ol',
+    'li',
+    'blockquote',
+    'pre',
+    'hr',
+    'table',
+    'thead',
+    'tbody',
+    'tfoot',
+    'tr',
+    'td',
+    'th',
+    'caption',
+    'figure',
+    'figcaption',
+  ],
+  ALLOWED_ATTR: [
+    'href',
+    'title',
+    'lang',
+    'class',
+    'id',
+    'aria-label',
+    'aria-hidden',
+    'aria-describedby',
+    'role',
+    'colspan',
+    'rowspan',
+    'scope',
+  ],
+};
+
+const sanitizeHtml = (html: string) =>
+  DOMPurify.sanitize(html, HTML_SANITIZE_CONFIG);
 
 const CodeBlock = ({ language, value }) => {
   return (
@@ -46,10 +107,10 @@ export const getMdxComponents = (lang: Lang = 'fr') => ({
   PositionableImage: PositionableImage,
   code_block: CodeBlock,
   html: ({ value }: { value: string }) => (
-    <span dangerouslySetInnerHTML={{ __html: value }} />
+    <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(value) }} />
   ),
   html_inline: ({ value }: { value: string }) => (
-    <span dangerouslySetInnerHTML={{ __html: value }} />
+    <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(value) }} />
   ),
   ...(getRefConfig().featuresEnabled.lexique_tooltips
     ? {
