@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Charge les variables du fichier .env si présent (ne remplace pas les variables déjà définies)
+# Charge et exporte les variables du fichier .env si présent (surcharge les variables existantes)
 if [ -f .env ]; then
   set -a
   # shellcheck source=/dev/null
