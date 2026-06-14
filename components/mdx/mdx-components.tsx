@@ -45,6 +45,12 @@ export const getMdxComponents = (lang: Lang = 'fr') => ({
   h6: HeadingsStrong,
   PositionableImage: PositionableImage,
   code_block: CodeBlock,
+  html: ({ value }: { value: string }) => (
+    <span dangerouslySetInnerHTML={{ __html: value }} />
+  ),
+  html_inline: ({ value }: { value: string }) => (
+    <span dangerouslySetInnerHTML={{ __html: value }} />
+  ),
   ...(getRefConfig().featuresEnabled.lexique_tooltips
     ? {
         p: (props: any) => (
@@ -92,7 +98,10 @@ export const getMdxComponents = (lang: Lang = 'fr') => ({
       <>
         <picture>
           <source srcSet={image} />
-          <img alt={alt} {...rest} />
+          <img
+            alt={alt}
+            {...rest}
+          />
         </picture>
         {props.caption && (
           <figcaption className="text-center text-sm text-gray-500">
