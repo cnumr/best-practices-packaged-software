@@ -34,9 +34,9 @@ Il est aussi important de limiter le plus possible le démarrage automatique des
 
 ## Exemple
 
-J’ai un container Docker actif qui ne m’est pas utile dans l’immédiat. Il utilise des ressources inutilement. S’il 
+J’ai un conteneur Docker actif qui ne m’est pas utile dans l’immédiat. Il utilise des ressources inutilement. S’il 
 s’éteignait automatiquement, il ne consommerait pas de ressources autres que de l’espace disque. Cette stratégie 
-appliquée à l’ensemble des containers Docker permet de downsizer l’infrastructure matérielle dédiée.
+appliquée à l’ensemble des conteneurs Docker permet de downsizer l’infrastructure matérielle dédiée.
 
 
 ### Principe de validation
